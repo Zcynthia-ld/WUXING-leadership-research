@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.3, maxmum-scale=1.0, minimum-scale=0.3"> -->
+    <title>五行领导力测评</title>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #1a237e, #4a148c);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+            /* 调整标题大小 */
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: #4a148c;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        /* 通用图片响应式规则 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .intro {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        .element {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .element-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        .gold { background-color: #FFD700; }
+        .wood { background-color: #228B22; }
+        .water { background-color: #1E90FF; }
+        .fire { background-color: #FF4500; }
+        .earth { background-color: #CD853F; }
+        
+        .element-desc {
+            flex: 1;
+        }
+        .test-section {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 30px;
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .options {
+            margin-top: 15px;
+        }
+        .option {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background-color: #e9e9e9;
+        }
+        .option.selected {
+            background-color: #d1c4e9;
+            border-color: #7e57c2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #4a148c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #7e57c2;
+        }
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4a148c;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .result-section {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* 雷达图容器 */
+        .chart-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            height: auto;
+            position: relative;
+        }
+        .result-type {
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .result-detail {
+            margin-top: 20px;
+        }
+        .communication-tips {
+            background-color:#fafafa;  /*#e8f5e9;*/
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-bottom: 32px;
+        }
+        .communication-tips h3 {
+            margin-left: 20px; /* 左边距20像素 */
+        }
+        .communication-tips h4 {
+            margin-left: 20px; /* 左边距20像素 */
+        }
+        .communication-tips p {
+            margin-left: 20px; /* 左边距20像素 */
+        }
+        .match-results-container {
+            background-color:#fafafa;  /*#e8f5e9;*/
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        #startTestBtn {
+            margin: 30px auto;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            display: block;
+            width: fit-content;
+        }
+        .center-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        /* 在现有样式基础上修改以下部分 */
+        .balance-analysis-container {
+            display: flex;
+            align-items: center; /* 电脑端垂直居中 */
+            justify-content: space-between;
+            margin: 30px 0;
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 10px;
+            position: relative;
+            min-height: 280px; /* 添加最小高度保证垂直居中效果 */
+        }
+
+        .balance-analysis-container img {
+            width: 55%;
+            max-width: 280px;
+            height: auto;
+            object-fit: contain; /* 保持图片比例 */
+            margin: 0 30px 0 0; /* 仅设置右边距 */
+            align-self: center; /* 确保垂直居中 */
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 50%;
+            padding-right: 20px;
+        }
+
+        .balance-analysis-container h4 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4a148c;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .balance-analysis-container p {
+            line-height: 1.2;
+            white-space: pre-line;
+        }
+        
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .balance-analysis-container {
+                flex-direction: column;
+                min-height: auto;
+                padding: 15px;
+            }
+
+            .balance-analysis-container img {
+                width: 100%;
+                max-width: none;
+                margin: 20px 0 0 0; /* 图片在下 */
+                order: 2; /* 通过order控制显示顺序 */
+            }
+
+            .text-content {
+                width: 100%;
+                padding: 0;
+                order: 1; /* 文字在上 */
+            }
+
+            /* 解决文字溢出问题 */
+            .balance-analysis-container p {
+                white-space: normal !important; /* 强制正常换行 */
+                word-break: break-word; /* 允许单词内断行 */
+                font-size: 0.95rem; /* 适当缩小字体 */
+                line-height: 1.6; /* 增加行高 */
+            }
+
+            .balance-analysis-container h4 {
+                font-size: 1.2rem; /* 适当缩小标题 */
+            }
+        }
+
+        /* 通用文字优化 */
+        .balance-analysis-container p {
+            text-align: justify; /* 两端对齐 */
+            hyphens: auto; /* 自动连字符（支持英文） */
+            margin-bottom: 15px;
+        }
+        
+
+        #restartBtn {
+            display: block;
+            margin: 20px auto;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            background-color: #4a148c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #restartBtn:hover {
+            background-color: #7e57c2;
+        }
+        /* 新增二维码响应式样式 */
+        .qr-section {
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .qr-container {
+            margin: 20px auto;
+            padding: 15px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 280px;
+        }
+
+        .qr-image {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .qr-tips {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .qr-container {
+                max-width: 220px;
+                padding: 12px;
+            }
+            
+            .qr-image {
+                padding: 8px;
+            }
+            
+            .qr-tips {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .qr-section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .qr-container {
+                max-width: 200px;
+            }
+        }
+
+        .network-section {
+        margin: 40px 0;
+        padding: 25px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .network-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+        }
+
+        .legend-item {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        }
+
+        .legend-color {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 8px;
+        border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .projection-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        }
+
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        /* 添加五行关系图容器的样式 */
+        .wuxing-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 40px auto;
+        }
+
+        .element-node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* 五个元素的位置，基于正五边形的顶点 */
+        .element-node.wood { 
+            top: 10%; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #228B22;
+        }
+
+        .element-node.fire { 
+            top: 35%; 
+            right: 10%;
+            background-color: #FF4500;
+        }
+
+        .element-node.earth { 
+            bottom: 35%; 
+            right: 10%;
+            background-color: #CD853F;
+        }
+
+        .element-node.gold { 
+            bottom: 35%; 
+            left: 10%;
+            background-color: #FFD700;
+        }
+
+        .element-node.water { 
+            top: 35%; 
+            left: 10%;
+            background-color: #1E90FF;
+        }
+
+        /* SVG箭头样式 */
+        .wuxing-arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .wuxing-arrows path {
+            fill: none;
+            stroke: #666;
+            stroke-width: 2;
+            marker-end: url(#arrowhead);
+        }
+
+        .generating-cycle path {
+            stroke: #4CAF50;
+        }
+
+        .overcoming-cycle path {
+            stroke: #F44336;
+            stroke-dasharray: 5,5;
+        }
+
+        /* 响应式五行关系图样式 */
+        .wuxing-diagram {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            margin: 0 auto 10px auto;
+        }
+        @media (max-width: 600px) {
+            .wuxing-diagram {
+                width: 98vw;
+                height: 98vw;
+                max-width: 360px;
+                max-height: 360px;
+                min-width: 220px;
+                min-height: 220px;
+            }
+        }
+        .element-node {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            position: absolute;
+        }
+        @media (max-width: 600px) {
+            .element-node {
+                font-size: 20px;
+            }
+        }
+
+        /* 大号五行SVG美化样式 */
+        .wuxing-diagram-outer {
+          max-width: 520px;
+          margin: 0 auto 30px auto;
+        }
+        .wuxing-diagram-title {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        .wuxing-diagram-title h2 {
+          font-size: 1.5em;
+          margin-bottom: 4px;
+        }
+        .wuxing-diagram-svg {
+          width: 100%;
+          height: 0;
+          padding-bottom: 100%;
+          position: relative;
+        }
+        @media (max-width: 600px) {
+          .wuxing-diagram-outer { max-width: 98vw; }
+          .wuxing-diagram-title h2 { font-size: 1.1em; }
+        }
+
+        /* 双五边形五行图样式 */
+        .wuxing-double-diagram-outer {
+          width: 100%;
+          max-width: 1100px;
+          margin: 0 auto 30px auto;
+        }
+        .wuxing-double-diagram-flex {
+          display: flex;
+          gap: 32px;
+          justify-content: center;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+        .wuxing-diagram-block {
+          flex: 1 1 340px;
+          min-width: 260px;
+          max-width: 480px;
+          text-align: center;
+        }
+        .wuxing-diagram-title {
+          font-weight: bold;
+          font-size: 1.2em;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+        .wuxing-diagram-svg {
+          width: 100%;
+          height: 0;
+          padding-bottom: 100%;
+          position: relative;
+          margin-bottom: 10px;
+        }
+        .wuxing-explain-list {
+          text-align: left;
+          margin: 0 auto 0 auto;
+          padding: 0 10px 0 30px;
+          max-width: 420px;
+          font-size: 1.05em;
+        }
+        .wuxing-explain-list li {
+          margin-bottom: 6px;
+          line-height: 1.6;
+        }
+        @media (max-width: 900px) {
+          .wuxing-double-diagram-flex {
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+          }
+          .wuxing-diagram-block {
+            max-width: 98vw;
+          }
+        }
+        .wuxing-diagram-svg text {
+          font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+        }
+        .wuxing-diagram-svg .wuxing-node-label {
+          font-size: 1.1em !important;
+          font-weight: 400 !important;
+          letter-spacing: 1px;
+        }
+        @media (max-width: 600px) {
+          .wuxing-diagram-svg .wuxing-node-label {
+            font-size: 0.9em !important;
+          }
+        }
+
+        /* 导航按钮容器样式 */
+        .nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            z-index: 50;
+        }
+
+        /* 导航按钮内部容器 */
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 导航按钮样式 */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 导航按钮悬停效果 */
+        .nav-button:hover {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 导航按钮图标样式 */
+        .nav-button i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                padding: 6px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>五行领导力测评</h1>
+            <p>探索您的五行领导力特质</p>
+        </header>
+
+        <section class="intro">
+            <h2>测评介绍</h2>
+            <p>五行领导力测评基于中国传统五行理论（金、木、水、火、土），结合现代领导力研究，帮助您发现自己的领导风格特质和优势领域。
+            本测评包含20道精心设计的问题，涵盖决策力、团队管理、应变能力等多个维度，通过分析您的回答，识别您的领导力类型。</p>
+            
+            <h3>五行领导力类型</h3>
+            <div class="element">
+                <div class="element-icon gold">金</div>
+                <div class="element-desc">
+                    <strong>金型领导力（刚毅决断·规则导向）</strong>：注重规则执行与果断决策，适合需要强管控的场景。"金曰从革"，金具有可塑性和适应性，能够带来秩序和规则。凡具有沉降、肃杀、收敛、清洁、发声等性质和作用的事物或现象，均归属于金。
+                </div>
+            </div>
+            <div class="element">
+                <div class="element-icon wood">木</div>
+                <div class="element-desc">
+                    <strong>木型领导力（成长驱动·团队协作）</strong>：强调人才培养与团队协作，适合创新驱动型组织。"木曰曲直"，木具有能屈能伸、向上向外舒展的特性。凡具有生长、升发、伸展、舒畅等性质和作用的事物或现象，均归属于木。
+                </div>
+            </div>
+            <div class="element">
+                <div class="element-icon water">水</div>
+                <div class="element-desc">
+                    <strong>水型领导力（灵活应变·沟通协调）</strong>：擅长灵活应变与沟通，适合复杂多变的环境。"水曰润下"，水具有滋润、下行的特性。凡具有滋润、下行、寒冷、闭藏等性质和作用的事物或现象，均归属于水。
+                </div>
+            </div>
+            <div class="element">
+                <div class="element-icon fire">火</div>
+                <div class="element-desc">
+                    <strong>火型领导力（激情推动·目标导向）</strong>：注重目标达成与激情驱动，适合攻坚类任务。"火曰炎上"，炎上指火具有炎热、上升、光明的特性。凡具有温热、升腾、明亮等性质和作用的事物或现象，均归属于火。
+                </div>
+            </div>
+            <div class="element">
+                <div class="element-icon earth">土</div>
+                <div class="element-desc">
+                    <strong>土型领导力（稳定包容·文化塑造）</strong>：重视稳定与文化塑造，适合长期战略落地。"土爱稼穑"，土具有播种和收获，即孕育生机、长养万物的特性，故称土载四行，为万物之母。凡具有生化、承载、受纳等性质和作用的事物或现象，均归属于土。
+                </div>
+            </div>
+
+            <div class="center-container">
+                <label for="nameInput">请输入您的姓名：</label>
+                <input type="text" id="nameInput" placeholder="您的姓名" required>
+            </div>
+            
+            <button id="startTestBtn" class="btn">开始测评</button>
+        </section>
+
+        <section class="qr-section">
+            <h2>扫码进入移动端测评</h2>
+            <div class="qr-container">
+                <img 
+                    src="QRCode.png" 
+                    alt="五行领导力测评二维码" 
+                    class="qr-image"
+                    loading="lazy"
+                >
+            </div>
+        </section>
+
+        <section class="test-section" id="testSection">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <h2>五行领导力测评</h2>
+            <p>请根据您的真实想法选择最符合您的选项</p>
+
+            <!-- 问题将通过JavaScript动态加载 -->
+            <div id="questionContainer"></div>
+
+            <button class="btn" id="prevBtn" disabled>上一题</button>
+            <button class="btn" id="nextBtn">下一题</button>
+        </section>
+
+        <section class="result-section" id="resultSection">
+            <h2>您的五行领导力分析报告</h2>
+            <div class="chart-container">
+                <canvas id="resultChart"></canvas>
+            </div>
+            <div class="result-type" id="resultType">
+                <h3>您的主导领导力类型：<span id="primaryType"></span></h3>
+                <p id="typeDescription"></p>
+            </div>
+            <div class="result-detail">
+                <h3>五行领导力详细分析</h3>
+                <div id="detailedAnalysis"></div>
+            </div>
+            
+            <div class="communication-tips">
+                <h3>  沟通建议</h3>
+                <h4>  与上级沟通</h4>
+                <p id="upwardCommunication"></p>
+                <h4>  与下属沟通</h4>
+                <p id="downwardCommunication"></p>
+            </div>
+            <!-- 双五边形五行图自动集成 -->
+            <div class="communication-tips">
+                <h3>企业生克转化的动态法则</h3>
+                <div class="wuxing-double-diagram-flex">
+                  <div class="wuxing-diagram-block">
+                    <div class="wuxing-diagram-title">价值创造循环（相生）</div>
+                    <div id="wuxing-diagram-svg-sheng" class="wuxing-diagram-svg"></div>
+                    <ul class="wuxing-explain-list">
+                      <li><b>木生火</b> 研发投入（木）驱动品牌升级（火）</li>
+                      <li><b>火生土</b> 市场影响（火）提升运营规模（土）</li>
+                      <li><b>土生金</b> 流程优化（土）保障财务收益（金）</li>
+                      <li><b>金生水</b> 资本实力（金）支撑战略变革（水）</li>
+                      <li><b>水生木</b> 战略前瞻（水）引导创新方向（木）</li>
+                    </ul>
+                  </div>
+                  <div class="wuxing-diagram-block">
+                    <div class="wuxing-diagram-title">风险控制循环（相克）</div>
+                    <div id="wuxing-diagram-svg-ke" class="wuxing-diagram-svg"></div>
+                    <ul class="wuxing-explain-list">
+                      <li><b>木克土</b> 创新突破（木）防止组织僵化（土）</li>
+                      <li><b>土克水</b> 运营体系（土）约束战略冒进（水）</li>
+                      <li><b>水克火</b> 风险预案（水）抑制品牌危机（火）</li>
+                      <li><b>火克金</b> 文化认同（火）软化制度刚性（金）</li>
+                      <li><b>金克木</b> 财务纪律（金）规范研发投入（木）</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <div class="communication-tips"><!-- 企业家的五行修炼模块 -->
+            
+                <h3> 企业家的五行修炼</h3>
+                <div style="background:#fff;border-radius:12px;padding:28px 18px 18px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:18px;">
+                    <div style="font-weight:bold;font-size:1.15em;margin-bottom:18px;">领导力五行轮</div>
+                    <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #94BE45;padding:0 8px 0 12px;">
+                        <div style="font-size:1.25em;font-weight:bold;color:#94BE45;">木 <span style="font-size:1.1em;vertical-align:middle;">🌱</span></div>
+                        <div style="font-size:1em;">决策力</div>
+                        <div style="font-size:0.95em;color:#888;">（顺生）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #BF3C2A;padding:0 8px 0 12px;">
+                        <div style="font-size:1.25em;font-weight:bold;color:#BF3C2A;">火 <span style="font-size:1.1em;vertical-align:middle;">🔥</span></div>
+                        <div style="font-size:1em;">感召力</div>
+                        <div style="font-size:0.95em;color:#888;">（感召）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #936B3A;padding:0 8px 0 12px;">
+                        <div style="font-size:1.25em;font-weight:bold;color:#936B3A;">土 <span style="font-size:1.1em;vertical-align:middle;">⚠️</span></div>
+                        <div style="font-size:1em;">执行力</div>
+                        <div style="font-size:0.95em;color:#888;">（增强）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #E4BF23;padding:0 8px 0 12px;">
+                        <div style="font-size:1.25em;font-weight:bold;color:#E4BF23;">金 <span style="font-size:1.1em;vertical-align:middle;">⚙️</span></div>
+                        <div style="font-size:1em;">控制力</div>
+                        <div style="font-size:0.95em;color:#888;">（先驻）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #5293D6;padding:0 8px 0 12px;">
+                        <div style="font-size:1.25em;font-weight:bold;color:#5293D6;">水 <span style="font-size:1.1em;vertical-align:middle;">🌊</span></div>
+                        <div style="font-size:1em;">洞察力</div>
+                        <div style="font-size:0.95em;color:#888;">（快驻）</div>
+                    </div>
+                    </div>
+                    <div style="margin:18px 0 0 0;">
+                    <div style="font-weight:bold;margin-bottom:8px;">修炼路径</div>
+                    <div style="background:#F3F8FF;border-radius:8px;padding:14px 18px;">
+                        <div style="margin-bottom:6px;"><span style="color:#94BE45;font-weight:bold;">🌱 初创期：</span>重"木火"（开拓市场）</div>
+                        <div style="margin-bottom:6px;"><span style="color:#936B3A;font-weight:bold;">⚠️ 成长期：</span>强"土金"（建立体系）</div>
+                        <div><span style="color:#5293D6;font-weight:bold;">🌊 成熟期：</span>养"水"（布局变革）</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 数字化升级路径模块 -->
+            <div class="communication-tips">
+                <h3>数字化升级路径</h3>
+                <div style="background:#fff;border-radius:12px;padding:28px 18px 18px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:18px;">
+                    <div style="font-weight:bold;font-size:1.15em;margin-bottom:18px;">五行数据中台</div>
+                    <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #94BE45;padding:0 8px 0 12px;">
+                        <div style="font-size:1.1em;font-weight:bold;color:#94BE45;">木元素</div>
+                        <div style="font-size:0.98em;">专利数据（专利、研发日志）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #BF3C2A;padding:0 8px 0 12px;">
+                        <div style="font-size:1.1em;font-weight:bold;color:#BF3C2A;">火元素</div>
+                        <div style="font-size:0.98em;">舆情监测系统（品牌、文化评价）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #936B3A;padding:0 8px 0 12px;">
+                        <div style="font-size:1.1em;font-weight:bold;color:#936B3A;">土元素</div>
+                        <div style="font-size:0.98em;">流程引擎（ERP+MES）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #E4BF23;padding:0 8px 0 12px;">
+                        <div style="font-size:1.1em;font-weight:bold;color:#E4BF23;">金元素</div>
+                        <div style="font-size:0.98em;">智能财务系统（风控模型）</div>
+                    </div>
+                    <div style="flex:1 1 120px;min-width:90px;text-align:center;border-left:3px solid #5293D6;padding:0 8px 0 12px;">
+                        <div style="font-size:1.1em;font-weight:bold;color:#5293D6;">水元素</div>
+                        <div style="font-size:0.98em;">数字孪生决策（战略沙盘）</div>
+                    </div>
+                    </div>
+                    <div style="margin:18px 0 0 0;">
+                    <div style="font-weight:bold;margin-bottom:8px;">AI赋能应用</div>
+                    <div style="background:#F3F8FF;border-radius:8px;padding:14px 18px;">
+                        <div style="margin-bottom:6px;"><span style="color:#5293D6;font-weight:bold;">🧠 智能预警系统：</span>基于五行生克关系的智能预警系统</div>
+                        <div><span style="color:#936B3A;font-weight:bold;">🏥 组织健康诊断算法：</span>结合《黄帝内经》的"组织健康诊断算法"</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn" id="restartBtn">重新测评</button>
+        </section>
+
+        <footer class="bg-gray-100 dark:bg-gray-800 py-8 relative z-10" style="margin-bottom:80px; margin-top: 0;">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <!-- <p class="text-gray-600 dark:text-gray-400">作者： 陈策 -->
+                        <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">© 2025 五行领导力测评 | 江苏交控人才集团版权所有</p>
+                    </div>
+                    <!-- <div class="flex space-x-4">
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href="#">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href="#">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href="#">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <div class="nav-container">
+        <div class="nav-inner">
+            <a href="page2.html" class="nav-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>企业的五行之道</span>
+            </a>
+            <a href="index.html" class="nav-button">
+                <i class="fas fa-home"></i>
+                <span>返回首页</span>
+            </a>
+            <a href="page1.html" class="nav-button">
+                <span>五行领导力研究</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- 引入Chart.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入Chart.js DataLabels插件 -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <!-- 在 Supabase 库之前引入 Polyfill -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.30.2/minified.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/regenerator-runtime/0.13.11/runtime.min.js"></script>
+    <!-- 引入Supabase客户端库 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- 引入自定义脚本 -->
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = [
+          { label: '木', color: '#94BE45' },
+          { label: '火', color: '#BF3C2A' },
+          { label: '土', color: '#936B3A' },
+          { label: '金', color: '#E4BF23' },
+          { label: '水', color: '#5293D6' }
+        ];
+        const shengOrder = [0,1,2,3,4];
+        const keOrder = [[0,2],[2,4],[4,1],[1,3],[3,0]];
+        function drawWuxingPentagon(containerId, type) {
+          const container = document.getElementById(containerId);
+          if (!container) return;
+          const size = Math.min(420, container.offsetWidth || 420);
+          const r = size * 0.36;
+          const nodeR = size * 0.065;
+          const center = size/2;
+          function getPoint(i, shrink=0) {
+            const angle = -Math.PI/2 + i * 2*Math.PI/5;
+            return [
+              center + (r-shrink) * Math.cos(angle),
+              center + (r-shrink) * Math.sin(angle)
+            ];
+          }
+          let svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="display:block;margin:0 auto;">`;
+          if(type==='sheng'){
+            for(let i=0;i<5;i++){
+              const [x1c, y1c] = getPoint(i, 0);
+              const [x2c, y2c] = getPoint((i+1)%5, 0);
+              const dx = x2c - x1c, dy = y2c - y1c, len = Math.sqrt(dx*dx+dy*dy);
+              const sx1 = x1c + dx/len * nodeR;
+              const sy1 = y1c + dy/len * nodeR;
+              const sx2 = x2c - dx/len * nodeR;
+              const sy2 = y2c - dy/len * nodeR;
+              svg += `<defs>
+                <marker id="arrowhead-sheng${i}" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#4CAF50"/>
+                </marker>
+              </defs>`;
+              svg += `<line x1="${sx1}" y1="${sy1}" x2="${sx2}" y2="${sy2}" stroke="#4CAF50" stroke-width="2.2" marker-end="url(#arrowhead-sheng${i})"/>`;
+            }
+          } else if(type==='ke'){
+            for(let i=0;i<5;i++){
+              const [from,to] = keOrder[i];
+              const [x1c, y1c] = getPoint(from, 0);
+              const [x2c, y2c] = getPoint(to, 0);
+              const dx = x2c - x1c, dy = y2c - y1c, len = Math.sqrt(dx*dx+dy*dy);
+              const sx1 = x1c + dx/len * nodeR;
+              const sy1 = y1c + dy/len * nodeR;
+              const sx2 = x2c - dx/len * nodeR;
+              const sy2 = y2c - dy/len * nodeR;
+              svg += `<defs>
+                <marker id="arrowhead-ke${i}" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#F44336"/>
+                </marker>
+              </defs>`;
+              svg += `<line x1="${sx1}" y1="${sy1}" x2="${sx2}" y2="${sy2}" stroke="#F44336" stroke-width="2.2" marker-end="url(#arrowhead-ke${i})"/>`;
+            }
+          }
+          for(let i=0;i<5;i++){
+            const [x,y] = getPoint(i, 0);
+            svg += `<circle cx="${x}" cy="${y}" r="${nodeR}" fill="${elements[i].color}" stroke="#fff" stroke-width="4"/>`;
+            svg += `<text x="${x}" y="${y+1}" text-anchor="middle" dominant-baseline="middle" class="wuxing-node-label" fill="#fff">${elements[i].label}</text>`;
+          }
+          svg += '</svg>';
+          container.innerHTML = svg;
+        }
+        drawWuxingPentagon('wuxing-diagram-svg-sheng','sheng');
+        drawWuxingPentagon('wuxing-diagram-svg-ke','ke');
+        window.addEventListener('resize', function(){
+          drawWuxingPentagon('wuxing-diagram-svg-sheng','sheng');
+          drawWuxingPentagon('wuxing-diagram-svg-ke','ke');
+        });
+    });
+    </script>
+</body>
+</html>

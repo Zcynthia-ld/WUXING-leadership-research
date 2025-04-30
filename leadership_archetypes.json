@@ -1,0 +1,3844 @@
+{
+  "leadership_archetypes": [
+    {
+      "name": "老子",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "道法自然",
+        "无为而治"
+      ],
+      "examples": [
+        "道德经",
+        "上善若水"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "孔子",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "仁德教育",
+        "礼制复兴"
+      ],
+      "examples": [
+        "论语",
+        "杏坛讲学"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.2,
+        0,
+        0.7
+      ]
+    },
+    {
+      "name": "墨子",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "兼爱非攻",
+        "墨家学派"
+      ],
+      "examples": [
+        "墨子",
+        "墨家十论"
+      ],
+      "percentages": [
+        0.7,
+        0,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "庄子",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "道家思想",
+        "逍遥游"
+      ],
+      "examples": [
+        "庄子",
+        "逍遥游"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "孟子",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "仁政思想",
+        "儒家学派"
+      ],
+      "examples": [
+        "孟子",
+        "性善论"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0,
+        0.2,
+        0.7
+      ]
+    },
+    {
+      "name": "荀子",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "人性本恶",
+        "礼法并重"
+      ],
+      "examples": [
+        "荀子",
+        "劝学"
+      ],
+      "percentages": [
+        0.6,
+        0,
+        0.3,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "韩非子",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "法家思想",
+        "严刑峻法"
+      ],
+      "examples": [
+        "韩非子",
+        "孤愤"
+      ],
+      "percentages": [
+        0.7,
+        0,
+        0.1,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "孙子",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "兵法大家",
+        "智勇双全"
+      ],
+      "examples": [
+        "孙子兵法",
+        "柏举之战"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0,
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "name": "屈原",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "忠君爱国",
+        "才华横溢"
+      ],
+      "examples": [
+        "离骚",
+        "汨罗江投江"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.1,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "范蠡",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "经商奇才",
+        "功成身退"
+      ],
+      "examples": [
+        "陶朱公",
+        "西施传说"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "秦始皇",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.8
+        },
+        {
+          "type": "earth",
+          "weight": 0.15
+        },
+        {
+          "type": "water",
+          "weight": 0.05
+        }
+      ],
+      "traits": [
+        "中央集权",
+        "法制改革"
+      ],
+      "examples": [
+        "焚书坑儒",
+        "郡县制"
+      ],
+      "percentages": [
+        0.8,
+        0,
+        0.05,
+        0,
+        0.15
+      ]
+    },
+    {
+      "name": "刘邦",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "知人善任",
+        "灵活应变"
+      ],
+      "examples": [
+        "约法三章",
+        "鸿门宴"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "刘彻",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "雄才大略",
+        "汉武盛世"
+      ],
+      "examples": [
+        "推恩令",
+        "独尊儒术"
+      ],
+      "percentages": [
+        0.3,
+        0.1,
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "张衡",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "科学家",
+        "发明家"
+      ],
+      "examples": [
+        "地动仪",
+        "浑天仪"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "管仲",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "改革家",
+        "政治家"
+      ],
+      "examples": [
+        "管子",
+        "九合诸侯"
+      ],
+      "percentages": [
+        0.7,
+        0,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "商鞅",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "法家改革",
+        "变法图强"
+      ],
+      "examples": [
+        "商鞅变法",
+        "法治思想"
+      ],
+      "percentages": [
+        0.7,
+        0.1,
+        0,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "董仲舒",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "儒家大师",
+        "天人感应"
+      ],
+      "examples": [
+        "春秋繁露",
+        "罢黜百家"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "项羽",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "勇猛无敌",
+        "豪爽直率"
+      ],
+      "examples": [
+        "巨鹿之战",
+        "乌江自刎"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "王羲之",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "书法大家",
+        "飘逸洒脱"
+      ],
+      "examples": [
+        "兰亭序",
+        "书圣"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "陶渊明",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "田园诗派",
+        "隐逸高士"
+      ],
+      "examples": [
+        "桃花源记",
+        "归园田居"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0.2,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "谢灵运",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "山水诗派",
+        "文学家"
+      ],
+      "examples": [
+        "登池上楼",
+        "石壁精舍还湖中"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "祖冲之",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "数学家",
+        "天文学家"
+      ],
+      "examples": [
+        "圆周率",
+        "指南车"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "李白",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "豪放不羁",
+        "浪漫主义"
+      ],
+      "examples": [
+        "将进酒",
+        "庐山谣"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.1,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "杜甫",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "忧国忧民",
+        "诗史风格"
+      ],
+      "examples": [
+        "三吏",
+        "三别"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.1,
+        0.2,
+        0.7
+      ]
+    },
+    {
+      "name": "韩愈",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "古文运动",
+        "文学家"
+      ],
+      "examples": [
+        "师说",
+        "进学解"
+      ],
+      "percentages": [
+        0.6,
+        0.1,
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "唐太宗",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "雄才大略",
+        "贞观之治"
+      ],
+      "examples": [
+        "玄武门之变",
+        "贞观之治"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "武则天",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "果断决断",
+        "善于用人"
+      ],
+      "examples": [
+        "则天盛世",
+        "设立殿试"
+      ],
+      "percentages": [
+        0.6,
+        0,
+        0.3,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "王伟",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "英勇无畏",
+        "爱国精神"
+      ],
+      "examples": [
+        "海军飞行员",
+        "捍卫主权"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "柳宗元",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "文学家",
+        "政治家"
+      ],
+      "examples": [
+        "永州八记",
+        "柳州刺史"
+      ],
+      "percentages": [
+        0.6,
+        0.1,
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "白居易",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "现实主义",
+        "诗歌改革"
+      ],
+      "examples": [
+        "琵琶行",
+        "长恨歌"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "苏轼",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "豁达乐观",
+        "文才横溢"
+      ],
+      "examples": [
+        "赤壁赋",
+        "念奴娇"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "朱熹",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "理学集大成",
+        "教育家"
+      ],
+      "examples": [
+        "四书章句集注",
+        "白鹿洞书院"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.2,
+        0,
+        0.7
+      ]
+    },
+    {
+      "name": "李清照",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "婉约词派",
+        "女词人"
+      ],
+      "examples": [
+        "如梦令",
+        "声声慢"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "王安石",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "改革家",
+        "文学家"
+      ],
+      "examples": [
+        "王安石变法",
+        "熙宁变法"
+      ],
+      "percentages": [
+        0.6,
+        0.1,
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "岳飞",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "精忠报国",
+        "勇猛善战"
+      ],
+      "examples": [
+        "岳家军",
+        "十二道金牌"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "陆游",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "爱国诗人",
+        "现实主义"
+      ],
+      "examples": [
+        "示儿",
+        "十一月四日风雨大作"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "辛弃疾",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "豪放词派",
+        "抗金名将"
+      ],
+      "examples": [
+        "破阵子",
+        "永遇乐"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "狄仁杰",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "刚正不阿",
+        "断案如神"
+      ],
+      "examples": [
+        "狄公案",
+        "平反冤狱"
+      ],
+      "percentages": [
+        0.7,
+        0.1,
+        0.2,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "王阳明",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "知行合一",
+        "心学集大成"
+      ],
+      "examples": [
+        "传习录",
+        "龙场悟道"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0,
+        0.2,
+        0.1
+      ]
+    },
+    {
+      "name": "徐霞客",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "旅行家",
+        "地理学家"
+      ],
+      "examples": [
+        "徐霞客游记",
+        "地理考察"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "曹雪芹",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "文学巨匠",
+        "现实主义"
+      ],
+      "examples": [
+        "红楼梦",
+        "石头记"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.1,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "郑板桥",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "画家",
+        "书法家"
+      ],
+      "examples": [
+        "竹石图",
+        "难得糊涂"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0,
+        0.2,
+        0.1
+      ]
+    },
+    {
+      "name": "张居正",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "改革家",
+        "铁腕手段"
+      ],
+      "examples": [
+        "一条鞭法",
+        "万历中兴"
+      ],
+      "percentages": [
+        0.6,
+        0,
+        0,
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "name": "康熙帝",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "雄才大略",
+        "文治武功"
+      ],
+      "examples": [
+        "平定三藩",
+        "收复台湾"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "雍正帝",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "果断决断",
+        "勤政爱民"
+      ],
+      "examples": [
+        "雍正王朝",
+        "摊丁入亩"
+      ],
+      "percentages": [
+        0.2,
+        0,
+        0,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "乾隆帝",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "文治武功",
+        "奢华享乐"
+      ],
+      "examples": [
+        "十全武功",
+        "编撰四库全书"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "文天祥",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "忠贞不屈",
+        "民族气节"
+      ],
+      "examples": [
+        "正气歌",
+        "零丁洋"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "name": "郑和",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "航海探险",
+        "和平外交"
+      ],
+      "examples": [
+        "七下西洋",
+        "郑和宝船"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.7,
+        0,
+        0.2
+      ]
+    },
+    {
+      "name": "成吉思汗",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "军事天才",
+        "帝国缔造者"
+      ],
+      "examples": [
+        "蒙古帝国",
+        "西征"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "曾国藩",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "gold",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "稳重务实",
+        "善于用人"
+      ],
+      "examples": [
+        "湘军创立",
+        "洋务运动"
+      ],
+      "percentages": [
+        0.1,
+        0,
+        0.3,
+        0,
+        0.6
+      ]
+    },
+    {
+      "name": "左宗棠",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "刚毅果敢",
+        "忠心爱国"
+      ],
+      "examples": [
+        "收复新疆",
+        "洋务运动"
+      ],
+      "percentages": [
+        0.3,
+        0.1,
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "海瑞",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "刚正不阿",
+        "清正廉洁"
+      ],
+      "examples": [
+        "海青天",
+        "平反冤狱"
+      ],
+      "percentages": [
+        0.7,
+        0,
+        0.2,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "鲁迅",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "批判精神",
+        "文学巨匠"
+      ],
+      "examples": [
+        "狂人日记",
+        "阿Q正传"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0.1,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "梁思成",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "建筑史学家",
+        "文化保护"
+      ],
+      "examples": [
+        "中国建筑史",
+        "营造法式"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "林徽因",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "建筑师",
+        "诗人"
+      ],
+      "examples": [
+        "中国建筑史",
+        "你是人间四月天"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "孙中山",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "革命精神",
+        "民主思想"
+      ],
+      "examples": [
+        "辛亥革命",
+        "三民主义"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.1,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "张大千",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "画家",
+        "书法家"
+      ],
+      "examples": [
+        "山水画",
+        "泼墨技法"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0.1,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "徐悲鸿",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "画家",
+        "美术教育家"
+      ],
+      "examples": [
+        "奔马图",
+        "美术教育"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "曹操",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "雄才大略",
+        "权谋策略"
+      ],
+      "examples": [
+        "官渡之战",
+        "挟天子以令诸侯"
+      ],
+      "percentages": [
+        0.6,
+        0,
+        0.1,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "刘备",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "仁德亲民",
+        "知人善任"
+      ],
+      "examples": [
+        "桃园结义",
+        "携民渡江"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "诸葛亮",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "智慧谋略",
+        "忠诚尽责"
+      ],
+      "examples": [
+        "草船借箭",
+        "六出祁山"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "孙权",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "稳重沉着",
+        "善于用人"
+      ],
+      "examples": [
+        "赤壁之战",
+        "江东基业"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "周瑜",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "才华横溢",
+        "战略眼光"
+      ],
+      "examples": [
+        "赤壁之战",
+        "江东才俊"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "关羽",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "忠义勇猛",
+        "武艺高强"
+      ],
+      "examples": [
+        "温酒斩华雄",
+        "过五关斩六将"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "张飞",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "勇猛果敢",
+        "粗中有细"
+      ],
+      "examples": [
+        "长坂坡一声吼",
+        "智取瓦口隘"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "赵云",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "忠诚勇敢",
+        "智勇双全"
+      ],
+      "examples": [
+        "单骑救主",
+        "长坂坡突围"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.5,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "司马懿",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "深谋远虑",
+        "隐忍待发"
+      ],
+      "examples": [
+        "空城计",
+        "高平陵之变"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0.6,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "孙悟空",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "机智勇敢",
+        "火眼金睛"
+      ],
+      "examples": [
+        "大闹天宫",
+        "三打白骨精"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "唐僧",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "仁慈善良",
+        "坚定信念"
+      ],
+      "examples": [
+        "西天取经",
+        "普度众生"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "沙僧",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "忠诚可靠",
+        "任劳任怨"
+      ],
+      "examples": [
+        "卷帘大将",
+        "西天取经"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "贾宝玉",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "多情善良",
+        "叛逆不羁"
+      ],
+      "examples": [
+        "黛玉葬花",
+        "宝玉挨打"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "林黛玉",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "敏感多情",
+        "才情横溢"
+      ],
+      "examples": [
+        "葬花吟",
+        "焚稿断痴情"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.7,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "王熙凤",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "精明能干",
+        "泼辣果断"
+      ],
+      "examples": [
+        "协理宁国府",
+        "弄权铁槛寺"
+      ],
+      "percentages": [
+        0.3,
+        0.1,
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "贾母",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "慈祥宽厚",
+        "家族支柱"
+      ],
+      "examples": [
+        "贾府家长",
+        "疼爱孙辈"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.2,
+        0,
+        0.7
+      ]
+    },
+    {
+      "name": "薛宝钗",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "earth",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "端庄贤淑",
+        "世故圆滑"
+      ],
+      "examples": [
+        "蘅芜苑",
+        "金玉良缘"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.6,
+        0,
+        0.3
+      ]
+    },
+    {
+      "name": "宋江",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "仗义疏财",
+        "忠君爱国"
+      ],
+      "examples": [
+        "及时雨",
+        "招安"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "武松",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "勇猛无畏",
+        "嫉恶如仇"
+      ],
+      "examples": [
+        "景阳冈打虎",
+        "血溅鸳鸯楼"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "林冲",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "武艺高强",
+        "忍辱负重"
+      ],
+      "examples": [
+        "风雪山神庙",
+        "误入白虎堂"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0,
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "name": "李逵",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "直爽豪放",
+        "勇猛无畏"
+      ],
+      "examples": [
+        "黑旋风",
+        "沂岭杀四虎"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "name": "居里夫人",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "坚韧不拔",
+        "科学精神"
+      ],
+      "examples": [
+        "镭的发现",
+        "两次诺贝尔奖"
+      ],
+      "percentages": [
+        0.3,
+        0.1,
+        0.6,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "爱因斯坦",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.5
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "创新精神",
+        "科学洞察"
+      ],
+      "examples": [
+        "相对论",
+        "光电效应"
+      ],
+      "percentages": [
+        0,
+        0.5,
+        0.3,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "丘吉尔",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "果断决策",
+        "雄才大略"
+      ],
+      "examples": [
+        "二战领导",
+        "铁幕演说"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "罗斯福",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "灵活应变",
+        "坚定信念"
+      ],
+      "examples": [
+        "新政",
+        "二战领导"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.5,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "牛顿",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "科学精神",
+        "严谨态度"
+      ],
+      "examples": [
+        "万有引力",
+        "光学研究"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0.6,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "林肯",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "仁慈宽容",
+        "坚定信念"
+      ],
+      "examples": [
+        "废除奴隶制",
+        "美国内战领导"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "拿破仑",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "gold",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "雄才大略",
+        "军事天才"
+      ],
+      "examples": [
+        "法国大革命",
+        "拿破仑法典"
+      ],
+      "percentages": [
+        0.2,
+        0.1,
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "马克思",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "思想深刻",
+        "坚定信念"
+      ],
+      "examples": [
+        "共产党宣言",
+        "资本论"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "伊丽莎白二世",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "稳定领导",
+        "国家象征"
+      ],
+      "examples": [
+        "英国君主",
+        "长期在位"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.2,
+        0,
+        0.7
+      ]
+    },
+    {
+      "name": "莎士比亚",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "戏剧大师",
+        "人文主义"
+      ],
+      "examples": [
+        "哈姆雷特",
+        "罗密欧与朱丽叶"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "达芬奇",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "文艺复兴巨匠",
+        "多才多艺"
+      ],
+      "examples": [
+        "蒙娜丽莎",
+        "最后的晚餐"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "柏拉图",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "哲学家",
+        "理想国"
+      ],
+      "examples": [
+        "柏拉图学院",
+        "洞穴寓言"
+      ],
+      "percentages": [
+        0,
+        0.6,
+        0.3,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "奥巴马",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "沟通能力",
+        "变革精神"
+      ],
+      "examples": [
+        "首位非裔总统",
+        "奥巴马医保"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.6,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "爱迪生",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "发明家",
+        "创新精神"
+      ],
+      "examples": [
+        "电灯",
+        "留声机"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "贝多芬",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "音乐天才",
+        "坚韧不拔"
+      ],
+      "examples": [
+        "第九交响曲",
+        "英雄交响曲"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.2,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "莫扎特",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "音乐神童",
+        "古典主义"
+      ],
+      "examples": [
+        "安魂曲",
+        "魔笛"
+      ],
+      "percentages": [
+        0,
+        0.7,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "梵高",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "艺术天才",
+        "情感丰富"
+      ],
+      "examples": [
+        "向日葵",
+        "星夜"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.1,
+        0.7,
+        0
+      ]
+    },
+    {
+      "name": "华盛顿",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "国父",
+        "民主精神"
+      ],
+      "examples": [
+        "美国独立",
+        "首任总统"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "马云",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "创新精神",
+        "战略眼光"
+      ],
+      "examples": [
+        "阿里巴巴",
+        "淘宝网"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.2,
+        0.5,
+        0
+      ]
+    },
+    {
+      "name": "马化腾",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "敏锐洞察",
+        "创新精神"
+      ],
+      "examples": [
+        "腾讯",
+        "微信"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.5,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "雷军",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.5
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "务实创新",
+        "用户导向"
+      ],
+      "examples": [
+        "小米",
+        "智能家居"
+      ],
+      "percentages": [
+        0,
+        0.5,
+        0,
+        0.3,
+        0.2
+      ]
+    },
+    {
+      "name": "任正非",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "坚韧不拔",
+        "战略眼光"
+      ],
+      "examples": [
+        "华为",
+        "5G技术"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0.1,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "王健林",
+      "types": [
+        {
+          "type": "gold",
+          "weight": 0.5
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "果断决策",
+        "商业眼光"
+      ],
+      "examples": [
+        "万达集团",
+        "商业地产"
+      ],
+      "percentages": [
+        0.5,
+        0,
+        0,
+        0.3,
+        0.2
+      ]
+    },
+    {
+      "name": "刘强东",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "务实高效",
+        "用户第一"
+      ],
+      "examples": [
+        "京东",
+        "物流体系"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "张一鸣",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "敏锐洞察",
+        "创新精神"
+      ],
+      "examples": [
+        "字节跳动",
+        "抖音"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.5,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "李彦宏",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "技术驱动",
+        "创新精神"
+      ],
+      "examples": [
+        "百度",
+        "搜索引擎"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.5,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "黄峥",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.6
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "创新精神",
+        "用户导向"
+      ],
+      "examples": [
+        "拼多多",
+        "社交电商"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.6,
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "name": "马斯克",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "创新精神",
+        "冒险精神"
+      ],
+      "examples": [
+        "特斯拉",
+        "SpaceX"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "贝索斯",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "战略眼光",
+        "用户导向"
+      ],
+      "examples": [
+        "亚马逊",
+        "AWS云服务"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.5,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "扎克伯格",
+      "types": [
+        {
+          "type": "wood",
+          "weight": 0.5
+        },
+        {
+          "type": "fire",
+          "weight": 0.3
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "创新精神",
+        "社交洞察"
+      ],
+      "examples": [
+        "Facebook",
+        "社交媒体"
+      ],
+      "percentages": [
+        0,
+        0.5,
+        0.2,
+        0.3,
+        0
+      ]
+    },
+    {
+      "name": "乔布斯",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "gold",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "创新精神",
+        "完美主义"
+      ],
+      "examples": [
+        "苹果",
+        "iPhone"
+      ],
+      "percentages": [
+        0.1,
+        0.3,
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "name": "比尔·盖茨",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "战略眼光",
+        "技术驱动"
+      ],
+      "examples": [
+        "微软",
+        "Windows系统"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0.5,
+        0,
+        0.2
+      ]
+    },
+    {
+      "name": "沃伦·巴菲特",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "稳健投资",
+        "价值判断"
+      ],
+      "examples": [
+        "伯克希尔·哈撒韦",
+        "价值投资"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.3,
+        0,
+        0.6
+      ]
+    },
+    {
+      "name": "李嘉诚",
+      "types": [
+        {
+          "type": "water",
+          "weight": 0.5
+        },
+        {
+          "type": "earth",
+          "weight": 0.3
+        },
+        {
+          "type": "wood",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "稳健投资",
+        "多元化经营"
+      ],
+      "examples": [
+        "长江实业",
+        "和记黄埔"
+      ],
+      "percentages": [
+        0,
+        0.2,
+        0.5,
+        0,
+        0.3
+      ]
+    },
+    {
+      "name": "柳传志",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.5
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "稳健务实",
+        "战略眼光"
+      ],
+      "examples": [
+        "联想",
+        "科技产业"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.2,
+        0.5
+      ]
+    },
+    {
+      "name": "张瑞敏",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.5
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "果断改革",
+        "用户至上"
+      ],
+      "examples": [
+        "海尔",
+        "砸冰箱事件"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "name": "董明珠",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.6
+        },
+        {
+          "type": "gold",
+          "weight": 0.3
+        },
+        {
+          "type": "earth",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "果断决策",
+        "营销创新"
+      ],
+      "examples": [
+        "格力",
+        "空调行业"
+      ],
+      "percentages": [
+        0.3,
+        0,
+        0,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "宗庆后",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.5
+        },
+        {
+          "type": "water",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.2
+        }
+      ],
+      "traits": [
+        "稳健务实",
+        "市场开拓"
+      ],
+      "examples": [
+        "娃哈哈",
+        "饮用水市场"
+      ],
+      "percentages": [
+        0,
+        0,
+        0.3,
+        0.2,
+        0.5
+      ]
+    },
+    {
+      "name": "曹德旺",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.6
+        },
+        {
+          "type": "wood",
+          "weight": 0.3
+        },
+        {
+          "type": "fire",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "实业家",
+        "慈善家"
+      ],
+      "examples": [
+        "福耀玻璃",
+        "慈善捐赠"
+      ],
+      "percentages": [
+        0,
+        0.3,
+        0,
+        0.1,
+        0.6
+      ]
+    },
+    {
+      "name": "鲁智深",
+      "types": [
+        {
+          "type": "fire",
+          "weight": 0.7
+        },
+        {
+          "type": "earth",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "豪爽直率",
+        "嫉恶如仇"
+      ],
+      "examples": [
+        "倒拔垂杨柳",
+        "大闹野猪林"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "name": "默克尔",
+      "types": [
+        {
+          "type": "earth",
+          "weight": 0.7
+        },
+        {
+          "type": "water",
+          "weight": 0.2
+        },
+        {
+          "type": "wood",
+          "weight": 0.1
+        }
+      ],
+      "traits": [
+        "稳健务实",
+        "战略眼光"
+      ],
+      "examples": [
+        "德国总理",
+        "欧洲稳定"
+      ],
+      "percentages": [
+        0,
+        0.1,
+        0.2,
+        0,
+        0.7
+      ]
+    }
+  ]
+}

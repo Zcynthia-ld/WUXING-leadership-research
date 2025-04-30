@@ -1,0 +1,848 @@
+<!doctypehtml>
+<html lang=zh-CN>
+    <meta charset=UTF-8>
+    <meta content=width= device-width,initial-scale=1.0 name=viewport>
+    <title>企业的五行之道</title>
+    <script src=https://cdn.tailwindcss.com/3.4.16></script>
+    <script>
+        tailwind.config = {
+            darkMode: `class`
+        }
+    </script>
+    <link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css rel=stylesheet>
+    <style>
+        @import "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap";:root {
+            --primary-color: #5e6ad2;
+            --secondary-color: #8d91c7;
+            --accent-color: #4f46e5;
+            --text-color: #1f2937;
+            --bg-color: #fff;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb;
+            --wood-color: #4ade80;
+            --fire-color: #f59e0b;
+            --earth-color: #d97706;
+            --metal-color: #6b7280;
+            --water-color: #3b82f6
+        }
+
+        .dark {
+            --primary-color: #6366f1;
+            --secondary-color: #818cf8;
+            --accent-color: #8b5cf6;
+            --text-color: #f3f4f6;
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --border-color: #374151
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Noto Sans SC,sans-serif;
+            transition: all .3s
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: all .3s
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px #0000001a,0 10px 10px -5px #0000000a
+        }
+
+        .btn {
+            transition: all .2s
+        }
+
+        .btn:hover {
+            transform: scale(1.05)
+        }
+
+        .fade-in {
+            animation: .8s ease-in-out fadeIn
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .element-card {
+            border-left: 4px solid;
+            transition: all .3s
+        }
+
+        .wood-element {
+            border-left-color: var(--wood-color)
+        }
+
+        .fire-element {
+            border-left-color: var(--fire-color)
+        }
+
+        .earth-element {
+            border-left-color: var(--earth-color)
+        }
+
+        .metal-element {
+            border-left-color: var(--metal-color)
+        }
+
+        .water-element {
+            border-left-color: var(--water-color)
+        }
+
+        .element-card:hover {
+            transform: translate(5px)
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transition: all .8s;
+            transform: translateY(20px)
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            position: relative
+        }
+
+        .cycle-diagram {
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+            position: relative;
+            background: #fff;
+        }
+
+        .cycle-item {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 6px solid #fff;
+            box-shadow: 0 2px 8px #0001;
+            z-index: 2;
+        }
+
+        .wood-cycle  { background: #9acd32; left: 130px; top: 10px; }
+        .fire-cycle  { background: #c0392b; left: 250px; top: 95px; }
+        .earth-cycle { background: #8d6748; left: 205px; top: 235px; }
+        .metal-cycle { background: #f1c40f; left: 55px;  top: 235px; color: #fff;}
+        .water-cycle { background: #3498db; left: 10px;  top: 95px; }
+        /* SVG箭头层级 */
+        .cycle-diagram svg { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 1; }
+
+        .cycle-arrow, .constraint-arrow {
+            position: absolute;
+            width: 120px;
+            height: 0;
+            border: none;
+            z-index: 1;
+        }
+        .cycle-arrow {
+            border-top: 3px solid #4caf50;
+        }
+        .cycle-arrow:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -6px;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 14px solid #4caf50;
+        }
+        .constraint-arrow {
+            border-top: 3px solid #e74c3c;
+        }
+        .constraint-arrow:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -6px;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 14px solid #e74c3c;
+        }
+
+        .arrow1 {
+            width: 100px;
+            top: 30px;
+            left: 180px;
+            transform: rotate(45deg)
+        }
+
+        .arrow2 {
+            width: 100px;
+            top: 180px;
+            left: 180px;
+            transform: rotate(135deg)
+        }
+
+        .arrow3 {
+            width: 100px;
+            top: 180px;
+            left: 60px;
+            transform: rotate(225deg)
+        }
+
+        .arrow4 {
+            width: 100px;
+            top: 180px;
+            left: 180px;
+            transform: rotate(315deg)
+        }
+
+        .arrow5 {
+            width: 100px;
+            top: 180px;
+            left: 180px;
+            transform: rotate(0)
+        }
+
+        .constraint-cycle {
+            opacity: .7
+        }
+
+        .constraint-arrow {
+            background-color: var(--secondary-color)
+        }
+
+        .constraint-arrow:after {
+            border-left-color: var(--secondary-color)
+        }
+
+        /* 导航按钮容器样式 */
+        .nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            z-index: 50;
+        }
+
+        /* 导航按钮内部容器 */
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 导航按钮样式 */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 导航按钮悬停效果 */
+        .nav-button:hover {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 导航按钮图标样式 */
+        .nav-button i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                padding: 6px 16px;
+            }
+        }
+    </style>
+    <body class=min-h-screen>
+        <nav class="sticky top-0 z-50 bg-opacity-90 backdrop-blur-sm" style=background-color:var(--bg-color)>
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center border-b" style=border-color:var(--border-color)>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-compass text-2xl" style=color:var(--primary-color)></i>
+                    <span class="text-xl font-bold">企业的五行之道</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" id=theme-toggle>
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <main class="container mx-auto px-4 py-8 max-w-5xl mb-24">
+            <section class="mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-6 text-center">企业运用五行之道，构建动态平衡的组织生态系统</h2>
+                <div class="card p-6 rounded-xl mb-8">
+                    <h3 class="text-xl font-semibold mb-4">核心观点</h3>
+                    <p class=mb-4>企业五行之道并非神秘玄学，而是将东方系统思维转化为管理工程的实践科学。通过建立要素关联、能量流动、动态平衡的三维模型，可构建具有自我修复能力的智慧型组织。
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="card p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center">
+                                <i class="fas fa-circle-dot mr-2" style=color:var(--wood-color)></i>
+                                木元素：创新与研发
+                            </h4>
+                            <p>对应产品研发体系、市场开拓能力，通过年专利数、新市场渗透率等关键指标量化评估。
+                        </div>
+                        <div class="card p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center">
+                                <i class="fas fa-circle-dot mr-2" style=color:var(--fire-color)></i>
+                                火元素：品牌与传播
+                            </h4>
+                            <p>对应市场营销系统、企业文化塑造，通过品牌溢价率、员工认同度等关键指标衡量。
+                        </div>
+                        <div class="card p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center">
+                                <i class="fas fa-circle-dot mr-2" style=color:var(--earth-color)></i>
+                                土元素：运营与承载
+                            </h4>
+                            <p>对应组织架构、流程管理系统，通过人均效能、流程标准化率等指标评估运营效率。
+                        </div>
+                        <div class="card p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center">
+                                <i class="fas fa-circle-dot mr-2" style=color:var(--metal-color)></i>
+                                金元素：财务与控制
+                            </h4>
+                            <p>对应财务风控体系、绩效考核机制，通过现金流周转率、合规达标率等指标监控。
+                        </div>
+                        <div class="card p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 flex items-center">
+                                <i class="fas fa-circle-dot mr-2" style=color:var(--water-color)></i>
+                                水元素：战略与变革
+                            </h4>
+                            <p>对应顶层设计、危机应对能力，通过战略落地率、危机响应时效等指标评估战略执行力。
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-sync-alt mr-3 text-primary"></i>
+                    生克转化的动态法则
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">价值创造循环（相生）</h3>
+                        <div class="cycle-diagram" id="cycle-diagram-sheng">
+                            <div class="cycle-item wood-cycle" id="wood-sheng">木</div>
+                            <div class="cycle-item fire-cycle" id="fire-sheng">火</div>
+                            <div class="cycle-item earth-cycle" id="earth-sheng">土</div>
+                            <div class="cycle-item metal-cycle" id="metal-sheng">金</div>
+                            <div class="cycle-item water-cycle" id="water-sheng">水</div>
+                            <svg id="cycle-arrows-sheng" width="320" height="320"></svg>
+                        </div>
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white mr-3">1</div>
+                                <div>
+                                    <h4 class="font-medium">木生火</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">研发投入（木）驱动品牌升级（火）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white mr-3">2</div>
+                                <div>
+                                    <h4 class="font-medium">火生土</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">市场影响力（火）提升运营规模（土）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white mr-3">3</div>
+                                <div>
+                                    <h4 class="font-medium">土生金</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">流程优化（土）保障财务收益（金）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-500 flex items-center justify-center text-white mr-3">4</div>
+                                <div>
+                                    <h4 class="font-medium">金生水</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">资本实力（金）支撑战略变革（水）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">5</div>
+                                <div>
+                                    <h4 class="font-medium">水生木</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">战略前瞻（水）引导创新方向（木）
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">风险控制循环（相克）</h3>
+                        <div class="cycle-diagram constraint-cycle" id="cycle-diagram-ke">
+                            <div class="cycle-item wood-cycle" id="wood-ke">木</div>
+                            <div class="cycle-item fire-cycle" id="fire-ke">火</div>
+                            <div class="cycle-item earth-cycle" id="earth-ke">土</div>
+                            <div class="cycle-item metal-cycle" id="metal-ke">金</div>
+                            <div class="cycle-item water-cycle" id="water-ke">水</div>
+                            <svg id="cycle-arrows-ke" width="320" height="320"></svg>
+                        </div>
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white mr-3">1</div>
+                                <div>
+                                    <h4 class="font-medium">木克土</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">创新突破（木）防止组织僵化（土）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white mr-3">2</div>
+                                <div>
+                                    <h4 class="font-medium">土克水</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">运营体系（土）约束战略冒进（水）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">3</div>
+                                <div>
+                                    <h4 class="font-medium">水克火</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">风险预案（水）抑制品牌危机（火）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white mr-3">4</div>
+                                <div>
+                                    <h4 class="font-medium">火克金</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">文化认同（火）软化制度刚性（金）
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-500 flex items-center justify-center text-white mr-3">5</div>
+                                <div>
+                                    <h4 class="font-medium">金克木</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">财务纪律（金）规范研发投入（木）
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-chart-line mr-3"></i>
+                    实战应用模型
+                </h2>
+                <div class="card p-6 rounded-xl mb-8">
+                    <h3 class="text-xl font-semibold mb-4">五行诊断矩阵</h3>
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 mb-4 md:mb-0 md:pr-6">
+                            <div class="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-bar text-4xl" style=color:var(--text-color)></i>
+                            </div>
+                            <div class="mt-4 grid grid-cols-2 gap-2">
+                                <div class="bg-green-500 text-white rounded-full text-center p-2">木</div>
+                                <div class="bg-orange-500 text-white rounded-full text-center p-2">火</div>
+                                <div class="bg-amber-500 text-white rounded-full text-center p-2">土</div>
+                                <div class="bg-gray-500 text-white rounded-full text-center p-2">金</div>
+                                <div class="bg-blue-500 text-white rounded-full text-center p-2">水</div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <h4 class="font-medium mb-2">诊断维度</h4>
+                            <ul class=space-y-2>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2" style=color:var(--primary-color)></i>
+                                    <span>
+                                        <strong>要素能量值</strong>
+                                        ：通过财务、人力等18项指标测算
+                                    </span>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2" style=color:var(--primary-color)></i>
+                                    <span>
+                                        <strong>生克关系平衡度</strong>
+                                        ：评估各要素间的相互制约关系
+                                    </span>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2" style=color:var(--primary-color)></i>
+                                    <span>
+                                        <strong>时空维度</strong>
+                                        ：结合行业周期（春木夏火秋金冬水）调整基准线
+                                    </span>
+                            </ul>
+                            <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900 rounded-lg">
+                                <h4 class="font-medium mb-2">案例分析</h4>
+                                <p class=text-sm>某新能源车企诊断发现"水元素"（战略）过弱，导致"木元素"（研发）无序扩张，启动"金生水"方案（引入战略投资者强化顶层设计）。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">动态平衡法则</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium mb-3 flex items-center">
+                                <i class="fas fa-balance-scale mr-2" style=color:var(--primary-color)></i>
+                                补泄原则
+                            </h4>
+                            <ul class=space-y-3>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right mt-1 mr-2 text-green-500"></i>
+                                    <span>研发滞后（木虚）时，既可直接增加投入（补木），也可强化战略引导（水生木）</span>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right mt-1 mr-2 text-orange-500"></i>
+                                    <span>品牌危机（火亢）时，既可缩减营销（泄火），也可启动危机公关（水克火）</span>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-3 flex items-center">
+                                <i class="fas fa-exchange-alt mr-2" style=color:var(--primary-color)></i>
+                                乘侮调节
+                            </h4>
+                            <ul class=space-y-3>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right mt-1 mr-2 text-gray-500"></i>
+                                    <span>当现金流断裂（金虚）引发战略失控（水侮金），优先修复财务体系</span>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right mt-1 mr-2 text-amber-500"></i>
+                                    <span>组织官僚化（土亢）抑制创新（木虚），启动"木克土"改革计划</span>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-user-tie mr-3"></i>
+                    企业家的五行修炼
+                </h2>
+                <div class="card p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">领导力五行轮</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
+                        <div class="element-card wood-element p-4 rounded-lg">
+                            <div class="text-center mb-2">
+                                <i class="fas fa-leaf text-2xl mb-2" style=color:var(--wood-color)></i>
+                                <h4 class=font-medium>木</h4>
+                            </div>
+                            <p class="text-center text-sm">决策力
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">（震卦）
+                        </div>
+                        <div class="element-card fire-element p-4 rounded-lg">
+                            <div class="text-center mb-2">
+                                <i class="fas fa-fire text-2xl mb-2" style=color:var(--fire-color)></i>
+                                <h4 class=font-medium>火</h4>
+                            </div>
+                            <p class="text-center text-sm">感召力
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">（离卦）
+                        </div>
+                        <div class="element-card earth-element p-4 rounded-lg">
+                            <div class="text-center mb-2">
+                                <i class="fas fa-mountain text-2xl mb-2" style=color:var(--earth-color)></i>
+                                <h4 class=font-medium>土</h4>
+                            </div>
+                            <p class="text-center text-sm">执行力
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">（坤卦）
+                        </div>
+                        <div class="element-card metal-element p-4 rounded-lg">
+                            <div class="text-center mb-2">
+                                <i class="fas fa-cog text-2xl mb-2" style=color:var(--metal-color)></i>
+                                <h4 class=font-medium>金</h4>
+                            </div>
+                            <p class="text-center text-sm">控制力
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">（兑卦）
+                        </div>
+                        <div class="element-card water-element p-4 rounded-lg">
+                            <div class="text-center mb-2">
+                                <i class="fas fa-water text-2xl mb-2" style=color:var(--water-color)></i>
+                                <h4 class=font-medium>水</h4>
+                            </div>
+                            <p class="text-center text-sm">洞察力
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">（坎卦）
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+                        <h4 class="font-medium mb-2">修炼路径</h4>
+                        <ul class=space-y-2>
+                            <li class="flex items-start">
+                                <i class="fas fa-seedling mt-1 mr-2" style=color:var(--wood-color)></i>
+                                <span>
+                                    <strong>初创期</strong>
+                                    ：重"木火"（开拓市场）
+                                </span>
+                            <li class="flex items-start">
+                                <i class="fas fa-tree mt-1 mr-2" style=color:var(--earth-color)></i>
+                                <span>
+                                    <strong>成长期</strong>
+                                    ：强"土金"（建立体系）
+                                </span>
+                            <li class="flex items-start">
+                                <i class="fas fa-water mt-1 mr-2" style=color:var(--water-color)></i>
+                                <span>
+                                    <strong>成熟期</strong>
+                                    ：养"水"（布局变革）
+                                </span>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-digital-tachograph mr-3"></i>
+                    数字化升级路径
+                </h2>
+                <div class="card p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">五行数据中台</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <div class="element-card wood-element p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">木元素</h4>
+                            <p class=text-sm>专利数据库（专利、研发日志）
+                        </div>
+                        <div class="element-card fire-element p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">火元素</h4>
+                            <p class=text-sm>舆情监测系统（舆情监测、文化评估）
+                        </div>
+                        <div class="element-card earth-element p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">土元素</h4>
+                            <p class=text-sm>流程引擎（ERP+MES）
+                        </div>
+                        <div class="element-card metal-element p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">金元素</h4>
+                            <p class=text-sm>智能财务系统（风控模型）
+                        </div>
+                        <div class="element-card water-element p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">水元素</h4>
+                            <p class=text-sm>数字孪生决策（战略沙盘）
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+                        <h4 class="font-medium mb-2">AI赋能应用</h4>
+                        <ul class=space-y-2>
+                            <li class="flex items-start">
+                                <i class="fas fa-robot mt-1 mr-2" style=color:var(--primary-color)></i>
+                                <span>
+                                    <strong>智能预警系统</strong>
+                                    ：基于五行生克关系的智能预警系统
+                                </span>
+                            <li class="flex items-start">
+                                <i class="fas fa-brain mt-1 mr-2" style=color:var(--primary-color)></i>
+                                <span>
+                                    <strong>组织健康诊断算法</strong>
+                                    ：结合《黄帝内经》的"组织健康诊断算法"
+                                </span>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-key mr-3"></i>
+                    关键成功要素
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:var(--primary-color)>
+                                <i class="fas fa-balance-scale text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold">把握"气"与"形"</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">避免机械对应，把握"气"（能量流动）与"形"（组织架构）的统一，实现系统性平衡。
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:var(--primary-color)>
+                                <i class="fas fa-sync-alt text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold">融入现有管理体系</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">将五行思维融入现有管理体系（如与平衡计分卡BSC结合），形成有机整合的管理框架。
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:var(--primary-color)>
+                                <i class="fas fa-search-plus text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold">定期"五行审计"</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">定期进行"五行审计"，结合VUCA环境动态调整参数，保持系统适应性与灵活性。
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-lightbulb mr-3"></i>
+                    结论
+                </h2>
+                <div class="card p-6 rounded-xl">
+                    <p class="text-lg leading-relaxed">企业五行之道绝非神秘玄学，而是将东方系统思维转化为管理工程的实践科学。通过建立要素关联、能量流动、动态平衡的三维模型，可构建具有自我修复能力的智慧型组织。
+                    <p class="text-lg leading-relaxed mt-4">企业应将五行理论作为战略工具，通过诊断、平衡、调整和创新，打造具有韧性的组织生态系统，应对复杂多变的商业环境。
+                </div>
+            </section>
+        </main>
+        <div class="nav-container">
+            <div class="nav-inner">
+                <div class="w-1/3 flex justify-start">
+                    <a href="page1.html" class="nav-button">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>五行领导力研究</span>
+                    </a>
+                </div>
+                <div class="w-1/3 flex justify-center">
+                    <a href="index.html" class="nav-button">
+                        <i class="fas fa-home"></i>
+                        <span>返回首页</span>
+                    </a>
+                </div>
+                <div class="w-1/3 flex justify-end">
+                    <a href="page3.html" class="nav-button">
+                        <span>五行领导力测评</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-gray-100 dark:bg-gray-800 py-8 relative z-10" style="margin-bottom:80px; margin-top: 0;">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-center items-center">
+                    <div class="text-center">
+                        <!-- <p class="text-gray-600 dark:text-gray-400">作者： 陈策 -->
+                        <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">© 2025 企业的五行之道 | 江苏交控人才集团版权所有</p>
+                    </div>
+                    <!-- <div class="flex space-x-4">
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href="#">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href="#">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href="#">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </footer>
+        <script>
+            const themeToggle = document.getElementById(`theme-toggle`);
+            if (window.matchMedia && window.matchMedia(`(prefers-color-scheme: dark)`).matches) {
+                document.documentElement.classList.add(`dark`)
+            }
+            ;themeToggle.addEventListener(`click`, () => {
+                document.documentElement.classList.toggle(`dark`)
+            }
+            );
+            const scrollElements = document.querySelectorAll(`.scroll-reveal`);
+            const elementInView = (a, b=1) => {
+                const c = a.getBoundingClientRect().top;
+                return c <= (window.innerHeight || document.documentElement.clientHeight) / b
+            }
+            ;
+            const displayScrollElement = a => {
+                a.classList.add(`active`)
+            }
+            ;
+            const handleScrollAnimation = () => {
+                scrollElements.forEach(a => {
+                    if (elementInView(a, 1.25)) {
+                        displayScrollElement(a)
+                    }
+                }
+                )
+            }
+            ;
+            handleScrollAnimation();
+            window.addEventListener(`scroll`, () => {
+                handleScrollAnimation()
+            }
+            )
+            // 五行五边形箭头自动绘制（支持五角星）
+            function drawPentagonArrows(diagramId, svgId, color, order, step) {
+                const points = [
+                    {id: order[0], angle: -90},
+                    {id: order[1], angle: -18},
+                    {id: order[2], angle: 54},
+                    {id: order[3], angle: 126},
+                    {id: order[4], angle: 198}
+                ];
+                const center = {x: 160, y: 160};
+                const r = 120;
+                const r_circle = 30;
+                function getPos(angle) {
+                    const rad = angle * Math.PI / 180;
+                    return {
+                        x: center.x + r * Math.cos(rad),
+                        y: center.y + r * Math.sin(rad)
+                    };
+                }
+                function drawArrow(svg, from, to, color) {
+                    const dx = to.x - from.x, dy = to.y - from.y;
+                    const len = Math.sqrt(dx*dx + dy*dy);
+                    const ux = dx / len, uy = dy / len;
+                    const start = {x: from.x + ux * r_circle, y: from.y + uy * r_circle};
+                    const end   = {x: to.x - ux * r_circle,   y: to.y - uy * r_circle};
+                    const arrow = document.createElementNS('http://www.w3.org/2000/svg','line');
+                    arrow.setAttribute('x1', start.x);
+                    arrow.setAttribute('y1', start.y);
+                    arrow.setAttribute('x2', end.x);
+                    arrow.setAttribute('y2', end.y);
+                    arrow.setAttribute('stroke', color);
+                    arrow.setAttribute('stroke-width', 2);
+                    arrow.setAttribute('marker-end', 'url(#arrowhead-'+svgId+')');
+                    svg.appendChild(arrow);
+                }
+                const svg = document.getElementById(svgId);
+                svg.innerHTML = `
+                  <defs>
+                    <marker id="arrowhead-${svgId}" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                      <polygon points="0,0 6,3 0,6" fill="${color}"/>
+                    </marker>
+                  </defs>
+                `;
+                for(let i=0;i<5;i++){
+                    const from = getPos(points[i].angle);
+                    const to   = getPos(points[(i+step)%5].angle);
+                    drawArrow(svg, from, to, color);
+                }
+            }
+            // 相生顺时针
+             drawPentagonArrows('cycle-arrows-sheng', 'cycle-arrows-sheng', '#4caf50', ['wood-sheng','fire-sheng','earth-sheng','metal-sheng','water-sheng'], 1);
+            // 相克五角星
+             drawPentagonArrows('cycle-arrows-ke', 'cycle-arrows-ke', '#e74c3c', ['wood-ke','earth-ke','water-ke','fire-ke','metal-ke'], 2);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,738 @@
+<!doctypehtml>
+<html lang=zh-CN>
+    <meta charset=UTF-8>
+    <meta content=width= device-width,initial-scale=1.0 name=viewport>
+    <title>五行领导力 - 系统解析</title>
+    <script src=https://cdn.tailwindcss.com/3.4.16></script>
+    <script>
+        tailwind.config = {
+            darkMode: `class`
+        }
+    </script>
+    <link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css rel=stylesheet>
+    <script src=https://jsdelivr.topthink.com/npm/chart.js></script>
+    <style>
+        @import "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap";:root {
+            --primary-color: #5e6ad2;
+            --secondary-color: #8d91c7;
+            --accent-color: #4f46e5;
+            --text-color: #1f2937;
+            --bg-color: #fff;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb
+        }
+
+        .dark {
+            --primary-color: #818cf8;
+            --secondary-color: #a5b4fc;
+            --accent-color: #6366f1;
+            --text-color: #f3f4f6;
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --border-color: #374151
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Noto Sans SC,sans-serif;
+            transition: all .3s
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: all .3s
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px #0000001a,0 10px 10px -5px #0000000a
+        }
+
+        .btn {
+            transition: all .2s
+        }
+
+        .btn:hover {
+            transform: scale(1.05)
+        }
+
+        .fade-in {
+            animation: .8s ease-in-out fadeIn
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .table-container {
+            overflow-x: auto
+        }
+
+        .table-container table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%
+        }
+
+        .table-container th,.table-container td {
+            border: 1px solid var(--border-color);
+            padding: 12px 16px
+        }
+
+        .table-container th {
+            background-color: #5e6ad21a;
+            font-weight: 600
+        }
+
+        .element-card {
+            border-left: 4px solid;
+            transition: all .3s
+        }
+
+        .element-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px #0000001a
+        }
+
+        .wood {
+            border-color: #4ade80
+        }
+
+        .fire {
+            border-color: #f87171
+        }
+
+        .earth {
+            border-color: #fbbf24
+        }
+
+        .metal {
+            border-color: #94a3b8
+        }
+
+        .water {
+            border-color: #3b82f6
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            position: relative
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transition: opacity .6s,transform .6s;
+            transform: translateY(20px)
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* 导航按钮容器样式 */
+        .nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            z-index: 50;
+        }
+
+        /* 导航按钮内部容器 */
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 导航按钮样式 */
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 导航按钮悬停效果 */
+        .nav-button:hover {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 导航按钮图标样式 */
+        .nav-button i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                padding: 6px 16px;
+            }
+        }
+    </style>
+    <body class=min-h-screen>
+        <nav class="sticky top-0 z-50 bg-opacity-90 backdrop-blur-sm" style=background-color:var(--bg-color)>
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center border-b" style=border-color:var(--border-color)>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-compass text-2xl" style=color:var(--primary-color)></i>
+                    <span class="text-xl font-bold">五行领导力</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" id=theme-toggle>
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <main class="container mx-auto px-4 py-8 max-w-5xl">
+            <section class="mb-12 fade-in">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">五行领导力</h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">基于东方哲学智慧的现代领导力系统，为组织发展提供动态适应的领导模式
+                </div>
+                <div class="card p-6 rounded-xl shadow-md mb-8">
+                    <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-info-circle mr-2" style=color:var(--primary-color)></i>
+                        什么是五行领导力？
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">五行领导力理论源于中国古代的阴阳五行学说，将领导者的行为特质分为五种类型，对应金、木、水、火、土五种元素。这种理论框架强调领导者应根据组织发展阶段动态调整领导风格，以适应不同情境的需求。
+                    <div class="flex justify-center my-6">
+                        <div class="w-full max-w-md h-64">
+                            <canvas id=elementChart></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-history mr-2" style=color:var(--primary-color)></i>
+                    理论溯源与哲学基础
+                </h2>
+                <div class="card p-6 rounded-xl shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">五行领导力的理论根基可追溯至中国古代的阴阳五行学说。其核心思想源于《尚书·洪范》对五种自然物质（木、火、土、金、水）特性的描述，后经战国时期邹衍提出的"五德终始说"将五行与政治更替相联系。汉代董仲舒在《春秋繁露》中构建了完整的阴阳五行体系，将相生相克法则融入儒家思想，形成了"天人感应"的理论框架。
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">现代学者柏学翥等将这一东方哲学体系与西方领导力理论结合，提出五行领导力模型，强调领导者需顺应组织发展阶段动态调整领导风格。
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-project-diagram mr-2" style=color:var(--primary-color)></i>
+                    核心模型与特征解析
+                </h2>
+                <div class="card p-6 rounded-xl shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">五行领导力模型将领导力状态分为五个维度，对应组织生命周期的不同阶段：
+                    <div class="table-container mb-6">
+                        <table class=w-full>
+                            <thead>
+                                <tr>
+                                    <th>五行属性
+                                    <th>领导力类型
+                                    <th>核心特质
+                                    <th>适用阶段
+                                    <th>
+                                        关键能力
+                                        <tbody>
+                                            <tr>
+                                                <td class=wood>木
+                                                <td class=wood>仁慈型
+                                                <td>包容力、沟通协调
+                                                <td>初创期
+                                                <td>
+                                                    愿景整合能力
+                                                    <tr>
+                                                        <td class=fire>火
+                                                        <td class=fire>中正型
+                                                        <td>公正裁决、制度构建
+                                                        <td>高速成长期
+                                                        <td>
+                                                            战略执行能力
+                                                            <tr>
+                                                                <td class=earth>土
+                                                                <td class=earth>诚信型
+                                                                <td>目标坚持、民主作风
+                                                                <td>稳定期
+                                                                <td>
+                                                                    资源整合能力
+                                                                    <tr>
+                                                                        <td class=metal>金
+                                                                        <td class=metal>正义型
+                                                                        <td>规则维护、责任担当
+                                                                        <td>成熟期
+                                                                        <td>
+                                                                            危机管控能力
+                                                                            <tr>
+                                                                                <td class=water>水
+                                                                                <td class=water>智慧型
+                                                                                <td>变革洞察、愿景重塑
+                                                                                <td>衰退/变革期
+                                                                                <td>创新突破能力
+                        </table>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">该模型强调动态适配性：在蒙牛集团的实践中，通过"五行领导力评估体系"实现干部选拔与组织发展阶段的精准匹配，2018年人均培训达41.97小时，成功推动战略转型。每个维度对应特定的阴阳能量配比，如木型领导体现"阳略盛于阴"的主动态势，而水型领导则需在被动环境中激发深层智慧。
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-tools mr-2" style=color:var(--primary-color)></i>
+                    应用方法论体系
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-stethoscope mr-2" style=color:var(--primary-color)></i>
+                            组织诊断工具
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">通过"五行能量场分析"评估组织状态：初创企业侧重木属性（包容力>60%），成熟企业需强化金属性（规则体系占比40%以上）。某科技公司在IPO前运用火型领导，通过制度重构使决策效率提升30%。
+                    </div>
+                    <div class="card p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-route mr-2" style=color:var(--primary-color)></i>
+                            领导力发展路径
+                        </h3>
+                        <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <li class=mb-2>相生循环：木→火→土→金→水的渐进式培养（如蒙牛HRSSC系统）
+                            <li>相克突破：特定时期逆向激活对抗性能量（如衰退期用水克火）
+                            <li>柏学翥提出的"道学成功领导者特征模型"包含12项能力指标，覆盖五感协调（观察力）、五德兼备（仁义礼智信）等维度
+                        </ul>
+                    </div>
+                    <div class="card p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-chess mr-2" style=color:var(--primary-color)></i>
+                            战略决策框架
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">将SWOT分析与五行相生相克结合：
+                        <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <li>木（优势）生火（机会）→扩张战略
+                            <li>水（威胁）克火（机会）→防御战略
+                        </ul>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mt-2">华为在芯片研发受阻时，采用水型领导的"迂回突破"策略，通过生态构建实现技术突围，印证了五行思维的实战价值。
+                    </div>
+                    <div class="card p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-cogs mr-2" style=color:var(--primary-color)></i>
+                            五行管理模型
+                        </h3>
+                        <div class="flex flex-col space-y-4">
+                            <div class="element-card p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xl font-bold mr-2" style=color:var(--primary-color)>木</span>
+                                    <span class=font-medium>仁慈型领导力</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">适用于初创期，强调包容与沟通，胸怀宽广，平易近人
+                            </div>
+                            <div class="element-card p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xl font-bold mr-2" style=color:var(--primary-color)>火</span>
+                                    <span class=font-medium>中正型领导力</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">适合高速成长期，要求自我克制，行为公正，带领团队快速成长
+                            </div>
+                            <div class="element-card p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xl font-bold mr-2" style=color:var(--primary-color)>土</span>
+                                    <span class=font-medium>诚信型领导力</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">适用于领导者与团队力量平衡的状态，强调坚持目标和愿景，作风民主
+                            </div>
+                            <div class="element-card p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xl font-bold mr-2" style=color:var(--primary-color)>金</span>
+                                    <span class=font-medium>正义型领导力</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">适合成熟阶段，要求具备强烈的责任感和正义感，运用管理手段达成目标
+                            </div>
+                            <div class="element-card p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xl font-bold mr-2" style=color:var(--primary-color)>水</span>
+                                    <span class=font-medium>智慧型领导力</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">适用于企业后期僵化状态，强调远见卓识和洞察力，提出鼓舞人心的愿景
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-lightbulb mr-2" style=color:var(--primary-color)></i>
+                    实践案例与应用
+                </h2>
+                <div class="card p-6 rounded-xl shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                <i class="fas fa-building mr-2" style=color:var(--primary-color)></i>
+                                蒙牛集团实践
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">蒙牛集团在2018年引入了"五行领导力"模型，用于统一领导力培养、干部能力评价及人才选拔评估体系。这一模型通过系统化的培训和分级授权激励机制，提升了员工的通用力、专业力及领导力，从而推动了组织的可持续发展。例如，通过"值得"线上培训平台，蒙牛实现了全员培训覆盖，显著提高了员工的学习积极性和组织效能。
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                <i class="fas fa-graduation-cap mr-2" style=color:var(--primary-color)></i>
+                                企业培训与课程设计
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">企业如蒙牛和郑秋老师等通过课程设计将五行领导力融入实际管理中。例如，郑秋老师通过《西游记》案例讲解学生干部如何修炼"五行领导力"，包括决策力、执行力、协作力等，帮助学员提升综合素质。此外，课程还结合心理学与传统国学，通过工作坊、案例分析等方式帮助管理者系统化掌握五行领导力。
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-balance-scale mr-2" style=color:var(--primary-color)></i>
+                    学术评价与争议
+                </h2>
+                <div class="card p-6 rounded-xl shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4">理论支持</h3>
+                            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <li>弥补了西方领导力理论的碎片化，如将变革型领导对应"水"，交易型领导对应"金"
+                                <li>在蒙牛、青马班等案例中显示文化适配性
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4">理论局限</h3>
+                            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <li>存在"新瓶装旧酒"风险，如五德理论对现代企业伦理的解释力存疑
+                                <li>缺乏大样本量化研究，部分企业将五行简单等同于岗位五行属性匹配，陷入机械论误区
+                            </ul>
+                        </div>
+                    </div>
+                    <div class=mt-6>
+                        <h3 class="text-xl font-semibold mb-4">未来发展方向</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                <h4 class="font-medium mb-2 flex items-center">
+                                    <i class="fas fa-robot mr-2" style=color:var(--primary-color)></i>
+                                    技术融合创新
+                                </h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">开发五行领导力AI诊断系统，通过NLP分析会议记录中的五行能量分布
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                <h4 class="font-medium mb-2 flex items-center">
+                                    <i class="fas fa-globe-asia mr-2" style=color:var(--primary-color)></i>
+                                    跨文化应用研究
+                                </h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">在"一带一路"企业中验证模型普适性，比较东西方领导力基因差异
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                <h4 class="font-medium mb-2 flex items-center">
+                                    <i class="fas fa-graduation-cap mr-2" style=color:var(--primary-color)></i>
+                                    教育体系重构
+                                </h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">中国浦东干部学院已将五行领导力纳入高管课程，建议在MBA课程中增设"阴阳决策模块"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-chart-line mr-2" style=color:var(--primary-color)></i>
+                    五行领导力评估
+                </h2>
+                <div class="card p-6 rounded-xl shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">通过以下评估工具，可以了解组织当前的五行能量分布情况，为领导力发展提供方向：
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                <i class="fas fa-chart-pie mr-2" style=color:var(--primary-color)></i>
+                                五行能量分布图
+                            </h3>
+                            <div class="w-full h-64">
+                                <canvas id=energyChart></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                <i class="fas fa-tasks mr-2" style=color:var(--primary-color)></i>
+                                领导力发展路径
+                            </h3>
+                            <div class=space-y-4>
+                                <div class="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:#4ade80>
+                                        <span class=font-bold>木</span>
+                                    </div>
+                                    <div>
+                                        <h4 class=font-medium>仁慈型领导力</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">包容力、沟通协调
+                                    </div>
+                                    <i class="fas fa-arrow-right mx-2 text-gray-400"></i>
+                                </div>
+                                <div class="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:#f87171>
+                                        <span class=font-bold>火</span>
+                                    </div>
+                                    <div>
+                                        <h4 class=font-medium>中正型领导力</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">公正裁决、制度构建
+                                    </div>
+                                    <i class="fas fa-arrow-right mx-2 text-gray-400"></i>
+                                </div>
+                                <div class="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:#fbbf24>
+                                        <span class=font-bold>土</span>
+                                    </div>
+                                    <div>
+                                        <h4 class=font-medium>诚信型领导力</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">目标坚持、民主作风
+                                    </div>
+                                    <i class="fas fa-arrow-right mx-2 text-gray-400"></i>
+                                </div>
+                                <div class="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:#94a3b8>
+                                        <span class=font-bold>金</span>
+                                    </div>
+                                    <div>
+                                        <h4 class=font-medium>正义型领导力</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">规则维护、责任担当
+                                    </div>
+                                    <i class="fas fa-arrow-right mx-2 text-gray-400"></i>
+                                </div>
+                                <div class="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style=background-color:#3b82f6>
+                                        <span class=font-bold>水</span>
+                                    </div>
+                                    <div>
+                                        <h4 class=font-medium>智慧型领导力</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">变革洞察、愿景重塑
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-12 scroll-reveal">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-bookmark mr-2" style=color:var(--primary-color)></i>
+                    总结与展望
+                </h2>
+                <div class="card p-6 rounded-xl shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">这种基于东方哲学智慧的领导力体系，正为全球管理理论创新提供独特视角。如日本京瓷集团的"阿米巴经营"暗合土型领导的诚信特质，而特斯拉的颠覆式创新则彰显水型智慧。其精髓在于：
+                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
+                        <li>五行领导力理论强调动态适应性，领导者需根据组织发展阶段和外部环境的变化，选择合适的领导风格
+                        <li>五行理论不仅是一种理论框架，更是一种实践工具，通过动态调整领导者特质以适应组织发展阶段
+                        <li>五行领导力理论的科学性与实用性仍需进一步验证和完善，但其在蒙牛集团等企业的成功应用表明其具有广泛的适用性和有效性
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <div class="nav-container">
+            <div class="nav-inner">
+                <div class="w-1/3"></div>
+                <div class="w-1/3 flex justify-center">
+                    <a href="index.html" class="nav-button">
+                        <i class="fas fa-home"></i>
+                        <span>返回首页</span>
+                    </a>
+                </div>
+                <div class="w-1/3 flex justify-end">
+                    <a href="page2.html" class="nav-button">
+                        <span>企业的五行之道</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-gray-100 dark:bg-gray-800 py-8 relative z-10" style="margin-bottom:80px; margin-top: 0;">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-center items-center">
+                    <div class="text-center">
+                        <!-- <p class="text-gray-600 dark:text-gray-400">作者： 陈策 -->
+                        <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">© 2025 五行领导力研究 | 江苏交控人才集团版权所有</p>
+                    </div>
+                    <!-- <div class="flex space-x-4">
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href=#>
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href=#>
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" href=#>
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </footer>
+        <script>
+            const themeToggle = document.getElementById(`theme-toggle`);
+            const prefersDarkScheme = window.matchMedia(`(prefers-color-scheme: dark)`);
+            if (prefersDarkScheme.matches) {
+                document.body.classList.add(`dark`)
+            }
+            ;themeToggle.addEventListener(`click`, () => {
+                document.body.classList.toggle(`dark`)
+            }
+            );
+            const elementCtx = document.getElementById(`elementChart`).getContext(`2d`);
+            const elementChart = new Chart(elementCtx,{
+                type: `radar`,
+                data: {
+                    labels: [`包容力`, `沟通能力`, `公正性`, `责任感`, `创新性`],
+                    datasets: [{
+                        label: `木型领导力`,
+                        data: [90, 85, 70, 60, 65],
+                        backgroundColor: `rgba(74, 222, 128, 0.2)`,
+                        borderColor: `rgba(74, 222, 128, 1)`,
+                        borderWidth: 2,
+                        pointBackgroundColor: `rgba(74, 222, 128, 1)`
+                    }, {
+                        label: `火型领导力`,
+                        data: [70, 80, 90, 85, 75],
+                        backgroundColor: `rgba(248, 113, 113, 0.2)`,
+                        borderColor: `rgba(248, 113, 113, 1)`,
+                        borderWidth: 2,
+                        pointBackgroundColor: `rgba(248, 113, 113, 1)`
+                    }, {
+                        label: `土型领导力`,
+                        data: [65, 70, 85, 90, 70],
+                        backgroundColor: `rgba(251, 191, 36, 0.2)`,
+                        borderColor: `rgba(251, 191, 36, 1)`,
+                        borderWidth: 2,
+                        pointBackgroundColor: `rgba(251, 191, 36, 1)`
+                    }, {
+                        label: `金型领导力`,
+                        data: [50, 60, 90, 95, 65],
+                        backgroundColor: `rgba(148, 163, 184, 0.2)`,
+                        borderColor: `rgba(148, 163, 184, 1)`,
+                        borderWidth: 2,
+                        pointBackgroundColor: `rgba(148, 163, 184, 1)`
+                    }, {
+                        label: `水型领导力`,
+                        data: [80, 90, 70, 65, 95],
+                        backgroundColor: `rgba(59, 130, 246, 0.2)`,
+                        borderColor: `rgba(59, 130, 246, 1)`,
+                        borderWidth: 2,
+                        pointBackgroundColor: `rgba(59, 130, 246, 1)`
+                    }]
+                },
+                options: {
+                    responsive: !0,
+                    maintainAspectRatio: !1,
+                    plugins: {
+                        legend: {
+                            position: `top`,
+                            labels: {
+                                color: document.body.classList.contains(`dark`) ? `#f3f4f6` : `#1f2937`
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: document.body.classList.contains(`dark`) ? `rgba(255, 255, 255, 0.1)` : `rgba(0, 0, 0, 0.1)`
+                            },
+                            grid: {
+                                color: document.body.classList.contains(`dark`) ? `rgba(255, 255, 255, 0.1)` : `rgba(0, 0, 0, 0.1)`
+                            },
+                            pointLabels: {
+                                color: document.body.classList.contains(`dark`) ? `#f3f4f6` : `#1f2937`
+                            },
+                            ticks: {
+                                color: document.body.classList.contains(`dark`) ? `#f3f4f6` : `#1f2937`
+                            }
+                        }
+                    }
+                }
+            });
+            const energyCtx = document.getElementById(`energyChart`).getContext(`2d`);
+            const energyChart = new Chart(energyCtx,{
+                type: `doughnut`,
+                data: {
+                    labels: [`木型`, `火型`, `土型`, `金型`, `水型`],
+                    datasets: [{
+                        data: [25, 20, 30, 15, 10],
+                        backgroundColor: [`rgba(74, 222, 128, 0.7)`, `rgba(248, 113, 113, 0.7)`, `rgba(251, 191, 36, 0.7)`, `rgba(148, 163, 184, 0.7)`, `rgba(59, 130, 246, 0.7)`],
+                        borderColor: [`rgba(74, 222, 128, 1)`, `rgba(248, 113, 113, 1)`, `rgba(251, 191, 36, 1)`, `rgba(148, 163, 184, 1)`, `rgba(59, 130, 246, 1)`],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: !0,
+                    maintainAspectRatio: !1,
+                    plugins: {
+                        legend: {
+                            position: `bottom`,
+                            labels: {
+                                color: document.body.classList.contains(`dark`) ? `#f3f4f6` : `#1f2937`
+                            }
+                        }
+                    }
+                }
+            });
+            const scrollElements = document.querySelectorAll(`.scroll-reveal`);
+            const elementInView = (a, b=1) => {
+                const c = a.getBoundingClientRect().top;
+                return c <= (window.innerHeight || document.documentElement.clientHeight) / b
+            }
+            ;
+            const displayScrollElement = a => {
+                a.classList.add(`active`)
+            }
+            ;
+            const handleScrollAnimation = () => {
+                scrollElements.forEach(a => {
+                    if (elementInView(a, 1.25)) {
+                        displayScrollElement(a)
+                    }
+                }
+                )
+            }
+            ;
+            handleScrollAnimation();
+            window.addEventListener(`scroll`, () => {
+                handleScrollAnimation()
+            }
+            );
+            const observer = new MutationObserver(a => {
+                a.forEach(a => {
+                    if (a.attributeName === `class`) {
+                        handleScrollAnimation()
+                    }
+                }
+                )
+            }
+            );
+            observer.observe(document.body, {
+                attributes: !0
+            })
+        </script>
+    </body>
+</html>
