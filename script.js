@@ -333,7 +333,7 @@ function initTest() {
     const restartBtn = document.getElementById('restartBtn');
     //****获取姓名输入框
     const nameInput = document.getElementById('nameInput');
-    
+    const deptInput = document.getElementById('deptInput');
     let currentQuestionIndex = 0;
     let answers = {};
 
@@ -358,26 +358,36 @@ function initTest() {
     });
     
     
+    // 获取部门名称
+    function getDepartmentValue() {
+        const deptSelect = document.getElementById('deptSelect');
+        const deptInput = document.getElementById('deptInput');
+        if (deptSelect && deptSelect.value === 'other') {
+            return deptInput ? deptInput.value.trim() : '';
+        } else {
+            return deptSelect ? deptSelect.value : '';
+        }
+    }
+    
     // 保存参与者信息
     async function saveParticipantInfo(participantName) {
         try {
             if (!supabase) {
                 throw new Error('Supabase客户端未初始化');
             }
-            
+            const department = getDepartmentValue();
             const { data, error } = await supabase
                 .from('test_results')
                 .insert([
                     {
                         name: participantName,
-                        scores: {},
+                        department: department,
+                        scores:{},
                         percentages: {}
                     }
                 ])
                 .select(); // 添加select()以获取插入的数据
-                
             if (error) throw error;
-            
             if (data && data.length > 0) {
                 currentParticipantId = data[0].id; // 保存返回的UUID
                 console.log('保存成功，参与者ID:', currentParticipantId);
