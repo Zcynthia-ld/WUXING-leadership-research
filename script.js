@@ -744,36 +744,78 @@ function initTest() {
         // 2. 添加五行平衡分析（带图片）
         const balanceAnalysisContainer = document.createElement('div');
         balanceAnalysisContainer.className = 'balance-analysis-container'; // 使用我们新加的CSS class
-        
-        // const imgElement = document.createElement('img');
-        // imgElement.src = '5elements.png'; // 使用项目根目录下的相对路径
-        // imgElement.alt = '五行相生相克图';
-        // imgElement.width = 200; // 确保图片宽度为200px
-        // imgElement.style.display = 'block'; // 确保图片为块级元素
-
         const imgElement = document.createElement('img');
         imgElement.src = '5elements.png';
         imgElement.alt = '五行相生相克图';
         imgElement.className = 'element-relation-img'; // 添加class
         balanceAnalysisContainer.appendChild(imgElement);
-        // // 添加移动端专用图片
-        // const mobileImg = document.createElement('img');
-        // mobileImg.src = '5elements.png';
-        // mobileImg.className = 'mobile-element-img';
-        // mobileImg.alt = '五行关系图';
-        // balanceAnalysisContainer.appendChild(mobileImg);
-
         const textContentDiv = document.createElement('div');
         textContentDiv.className = 'text-content';
         textContentDiv.innerHTML = `
             <h4>领导力发展分析</h4>
             <p>${getBalanceAnalysis(scores, primaryType)}</p>
         `;
-        
         balanceAnalysisContainer.appendChild(imgElement);
         balanceAnalysisContainer.appendChild(textContentDiv);
-
         detailedAnalysis.appendChild(balanceAnalysisContainer);
+
+        // 3. 新增：个人领导力类型与部门五行类型的匹配度板块
+        const matchContainer = document.createElement('div');
+        matchContainer.className = 'balance-analysis-container';
+        matchContainer.style.marginTop = '24px';
+        matchContainer.style.background = '#fafafa';
+        // matchContainer.style.border = '1px solid #ffe082';
+        matchContainer.style.display = 'flex';
+        matchContainer.style.alignItems = 'center';
+        matchContainer.style.padding = '20px';
+        matchContainer.style.borderRadius = '10px';
+
+        // 获取部门五行类型
+        let deptType = '';
+        const deptSelect = document.getElementById('deptSelect');
+        const wuxingTypeSelect = document.getElementById('wuxingTypeSelect');
+        if (deptSelect && deptSelect.value === 'other') {
+            deptType = wuxingTypeSelect ? wuxingTypeSelect.value : '';
+        } else {
+            const selectedOption = deptSelect.options[deptSelect.selectedIndex];
+            deptType = selectedOption && selectedOption.getAttribute('data-type') ? selectedOption.getAttribute('data-type') : '';
+        }
+        // 统一为如 gold/金型
+        const typeMap = {
+            '金型': 'gold', '木型': 'wood', '水型': 'water', '火型': 'fire', '土型': 'earth',
+            '金': 'gold', '木': 'wood', '水': 'water', '火': 'fire', '土': 'earth'
+        };
+        let deptTypeKey = typeMap[deptType] || '';
+        // 匹配度判断
+        let matchLevel = '';
+        let matchDesc = '';
+        if (!deptTypeKey) {
+            matchLevel = '未知';
+            matchDesc = '未选择部门五行类型，无法判断匹配度。';
+        } else if (primaryType === deptTypeKey) {
+            matchLevel = '高度匹配';
+            matchDesc = '您的主导领导力类型与部门五行类型完全一致，能够充分发挥您的优势。';
+        } else if (elementRelations.generating[primaryType] === deptTypeKey || elementRelations.generating[deptTypeKey] === primaryType) {
+            matchLevel = '较高匹配';
+            matchDesc = '您的主导领导力类型与部门五行类型存在相生关系，能够形成良性互补。';
+        } else if (elementRelations.overcoming[primaryType] === deptTypeKey || elementRelations.overcoming[deptTypeKey] === primaryType) {
+            matchLevel = '较低匹配';
+            matchDesc = '您的主导领导力类型与部门五行类型存在相克关系，建议注意沟通与协调。';
+        } else {
+            matchLevel = '中等匹配';
+            matchDesc = '您的主导领导力类型与部门五行类型无直接相生相克关系，建议结合实际情况灵活调整。';
+        }
+        // 展示内容
+        matchContainer.innerHTML = `
+            <div class="text-content">
+                <h4>个人领导力类型与部门五行类型的匹配度</h4>
+                <p><b>您的主导类型：</b> ${elementNames[primaryType]}型</p>
+                <p><b>部门五行类型：</b> ${deptType || '未选择'}</p>
+                <p><b>匹配度：</b> <span style="font-weight:bold;color:#ff9800;">${matchLevel}</span></p>
+                <p style="margin-top:8px;">${matchDesc}</p>
+            </div>
+        `;
+        detailedAnalysis.appendChild(matchContainer);
     }
 
     // Helper function to get element color (you might already have this or similar)
