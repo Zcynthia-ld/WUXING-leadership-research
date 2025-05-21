@@ -369,6 +369,19 @@ function initTest() {
         }
     }
     
+    // 新增：获取部门五行类型
+    function getDepartmentType() {
+        const deptSelect = document.getElementById('deptSelect');
+        const wuxingTypeSelect = document.getElementById('wuxingTypeSelect');
+        if (deptSelect && deptSelect.value === 'other') {
+            return wuxingTypeSelect ? wuxingTypeSelect.value : '';
+        } else {
+            // 取选中option的data-type
+            const selectedOption = deptSelect.options[deptSelect.selectedIndex];
+            return selectedOption && selectedOption.getAttribute('data-type') ? selectedOption.getAttribute('data-type') : '';
+        }
+    }
+    
     // 保存参与者信息
     async function saveParticipantInfo(participantName) {
         try {
@@ -376,12 +389,14 @@ function initTest() {
                 throw new Error('Supabase客户端未初始化');
             }
             const department = getDepartmentValue();
+            const department_type = getDepartmentType(); // 新增
             const { data, error } = await supabase
                 .from('test_results')
                 .insert([
                     {
                         name: participantName,
                         department: department,
+                        department_type: department_type, // 新增
                         scores:{},
                         percentages: {}
                     }

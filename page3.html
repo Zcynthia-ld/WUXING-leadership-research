@@ -771,42 +771,50 @@
                 <input type="text" id="nameInput" placeholder="您的姓名" required>
             </div>
             <div class="center-container" style="margin-top: 16px;">
-                <label for="deptSelect">请选择您的部门：</label>
+                <label for="deptSelect">请选择与您实际工作部门最为匹配的部门类型：</label>
                 <select id="deptSelect" onchange="handleDeptChange()" required>
                     <option value="">请选择部门</option>
                     <optgroup label="金型部门（规则导向型）">
-                        <option value="财务部门">财务部门：注重规范、严谨、控制</option>
-                        <option value="审计部门">审计部门：强调规则执行、监督</option>
-                        <option value="法务部门">法务部门：关注合规性、制度建设</option>
-                        <option value="纪检监察">纪检监察：注重纪律、规范</option>
+                        <option value="财务部门" data-type="金型">财务部门：注重规范、严谨、控制</option>
+                        <option value="审计部门" data-type="金型">审计部门：强调规则执行、监督</option>
+                        <option value="法务部门" data-type="金型">法务部门：关注合规性、制度建设</option>
+                        <option value="纪检监察" data-type="金型">纪检监察：注重纪律、规范</option>
                     </optgroup>
                     <optgroup label="木型部门（成长驱动型）">
-                        <option value="人力资源部">人力资源部：注重人才培养和团队建设</option>
-                        <option value="研发部门">研发部门：强调创新发展</option>
-                        <option value="培训部门">培训部门：关注员工成长</option>
-                        <option value="企业大学">企业大学：持续学习与发展</option>
+                        <option value="人力资源部" data-type="木型">人力资源部：注重人才培养和团队建设</option>
+                        <option value="研发部门" data-type="木型">研发部门：强调创新发展</option>
+                        <option value="培训部门" data-type="木型">培训部门：关注员工成长</option>
+                        <option value="企业大学" data-type="木型">企业大学：持续学习与发展</option>
                     </optgroup>
                     <optgroup label="水型部门（灵活应变型）">
-                        <option value="市场营销部">市场营销部：需要灵活应对市场变化</option>
-                        <option value="公共关系部">公共关系部：注重沟通协调</option>
-                        <option value="对外联络部">对外联络部：擅长资源整合</option>
-                        <option value="客户服务部">客户服务部：重视灵活解决问题</option>
+                        <option value="市场营销部" data-type="水型">市场营销部：需要灵活应对市场变化</option>
+                        <option value="公共关系部" data-type="水型">公共关系部：注重沟通协调</option>
+                        <option value="对外联络部" data-type="水型">对外联络部：擅长资源整合</option>
+                        <option value="客户服务部" data-type="水型">客户服务部：重视灵活解决问题</option>
                     </optgroup>
                     <optgroup label="火型部门（目标导向型）">
-                        <option value="销售部门">销售部门：注重业绩达成</option>
-                        <option value="项目管理部">项目管理部：关注目标完成</option>
-                        <option value="生产制造部">生产制造部：强调效率与产出</option>
-                        <option value="战略发展部">战略发展部：推动战略落地</option>
+                        <option value="销售部门" data-type="火型">销售部门：注重业绩达成</option>
+                        <option value="项目管理部" data-type="火型">项目管理部：关注目标完成</option>
+                        <option value="生产制造部" data-type="火型">生产制造部：强调效率与产出</option>
+                        <option value="战略发展部" data-type="火型">战略发展部：推动战略落地</option>
                     </optgroup>
                     <optgroup label="土型部门（稳定包容型）">
-                        <option value="行政办公室">行政办公室：维护日常运营稳定</option>
-                        <option value="党群工作部">党群工作部：塑造企业文化</option>
-                        <option value="综合管理部">综合管理部：协调各方关系</option>
-                        <option value="后勤保障部">后勤保障部：提供基础支持</option>
+                        <option value="行政办公室" data-type="土型">行政办公室：维护日常运营稳定</option>
+                        <option value="党群工作部" data-type="土型">党群工作部：塑造企业文化</option>
+                        <option value="综合管理部" data-type="土型">综合管理部：协调各方关系</option>
+                        <option value="后勤保障部" data-type="土型">后勤保障部：提供基础支持</option>
                     </optgroup>
-                    <option value="other">其他（请手动输入）</option>
+                    <option value="other">如均不符合，请您请手动输入部门名称，并匹配部门五行类型）</option>
                 </select>
                 <input type="text" id="deptInput" placeholder="请输入部门名称" style="display:none;margin-top:8px;" />
+                <select id="wuxingTypeSelect" style="display:none;margin-top:8px;">
+                    <option value="">请选择部门五行类型</option>
+                    <option value="金型">金型部门（规则导向型）</option>
+                    <option value="木型">木型部门（成长驱动型）</option>
+                    <option value="水型">水型部门（灵活应变型）</option>
+                    <option value="火型">火型部门（目标导向型）</option>
+                    <option value="土型">土型部门（稳定包容型）</option>
+                </select>
             </div>
             
             <button id="startTestBtn" class="btn">开始测评</button>
@@ -1025,12 +1033,17 @@
     function handleDeptChange() {
         var select = document.getElementById('deptSelect');
         var input = document.getElementById('deptInput');
+        var wuxing = document.getElementById('wuxingTypeSelect');
         if(select.value === 'other') {
             input.style.display = 'block';
             input.required = true;
+            wuxing.style.display = 'block';
+            wuxing.required = true;
         } else {
             input.style.display = 'none';
             input.required = false;
+            wuxing.style.display = 'none';
+            wuxing.required = false;
         }
     }
     </script>
