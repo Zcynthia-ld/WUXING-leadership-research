@@ -345,6 +345,25 @@ function initTest() {
             alert('请输入您的姓名！');
             return;
         }
+        // 新增：校验部门名称和五行类型
+        const deptSelect = document.getElementById('deptSelect');
+        const deptInput = document.getElementById('deptInput');
+        const wuxingTypeSelect = document.getElementById('wuxingTypeSelect');
+        let deptValid = false;
+        let wuxingValid = false;
+        if (deptSelect.value === 'other') {
+            deptValid = deptInput.value.trim() !== '';
+            wuxingValid = wuxingTypeSelect.value !== '';
+        } else {
+            deptValid = deptSelect.value !== '';
+            // 非other时，五行类型由option的data-type决定
+            const selectedOption = deptSelect.options[deptSelect.selectedIndex];
+            wuxingValid = selectedOption && selectedOption.getAttribute('data-type');
+        }
+        if (!deptValid || !wuxingValid) {
+            alert('请选择或填写部门名称和五行类型！');
+            return;
+        }
         //
         introSection.style.display = 'none';
         qrSection.style.display = 'none';
